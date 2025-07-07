@@ -70,7 +70,7 @@ const AuthDialog: React.FC = () => {
 		<Dialog
 			open={true}
 			onOpenChange={() => navigate("/")}>
-			<DialogContent className='sm:max-w-md bg-gray-900 border-gray-800 text-white px-4 md:px-8 overflow-hiddenn w-[93%] md:w-fit rounded-lg'>
+			<DialogContent className='sm:max-w-md bg-zinc-900 border-zinc-800 border-4 text-white px-4 md:px-8 overflow-hiddenn w-[93%] md:w-fit rounded-lg'>
 				<div className='relative'>
 					{/* Close Button */}
 					<button
@@ -89,12 +89,12 @@ const AuthDialog: React.FC = () => {
 						{/* Title */}
 						<DialogHeader className='space-y-4 mb-8'>
 							<DialogTitle className='text-2xl font-semibold text-app-offwhite text-center font-montserrat'>
-								Welcome to Nora AI
+								Welcome to Articulate
 							</DialogTitle>
 							<p className='text-xs text-gray-500 mt-6 leading-relaxed text-center'>
 								By continuing, you agree to our Terms of Service and
-								Privacy Policy. Start your personalized learning journey
-								today.
+								Privacy Policy. Transform any article into beautifully
+								formatted PDFs
 							</p>
 						</DialogHeader>
 
@@ -102,7 +102,7 @@ const AuthDialog: React.FC = () => {
 						<Button
 							disabled={loading}
 							onClick={handleGoogleAuth}
-							className='w-full disabled:bg-app-offwhite/90 bg-app-offwhite hover:bg-gray-100 text-gray-900 font-medium py-5 px-6 rounded-lg flex items-center justify-center gap-3 transition-all duration-200 hover:shadow-lg mt-4'>
+							className='w-full disabled:bg-app-offwhite/90 bg-gray-200 hover:bg-gray-100 text-gray-900 font-medium py-5 px-6 rounded-lg flex items-center justify-center gap-3 transition-all duration-200 hover:shadow-lg mt-4'>
 							<GoogleIcon />
 							Continue with Google
 						</Button>

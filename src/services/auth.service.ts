@@ -9,6 +9,7 @@ import {
 import { env } from "@/utils/env.utils";
 import Cookies from "js-cookie";
 import showToast from "@/utils/toast.utils";
+import { Autumn as autumn } from "autumn-js";
 // import { stripe } from "@/utils/stipe.utils";
 
 class AuthService {
@@ -56,16 +57,6 @@ class AuthService {
 			const username =
 				email.split("@")[0] || `user_${user.id.substring(0, 8)}`;
 
-			// // Create Stripe customer
-			// const customer = await stripe.customers.create({
-			// 	email: email,
-			// 	name: fullName,
-			// 	metadata: {
-			// 		source: "google_signup",
-			// 		user_id: user.id,
-			// 	},
-			// });
-
 			// Create profile in the database
 			const { error: profileError } = await this.supabase
 				.from("profile")
@@ -81,13 +72,21 @@ class AuthService {
 
 			if (profileError) throw profileError;
 
+			// // Create Stripe customer
+			const autmnCustomer = await autumn.customers.create({
+				id: user.id,
+				name: username,
+				email: email,
+				fingerprint: new Date().toISOString(),
+			});
+
 			// // Update user with customer ID in auth metadata
-			// await this.supabase.auth.updateUser({
-			// 	data: {
-			// 		customer_id: customer.id,
-			// 		username: username,
-			// 	},
-			// });
+			await this.supabase.auth.updateUser({
+				data: {
+					customer_id: autmnCustomer.data?.stripe_id,
+					username: username,
+				},
+			});
 
 			showToast.message("Account created successfully");
 		} catch (error) {

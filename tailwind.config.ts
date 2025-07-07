@@ -21,6 +21,9 @@ const config: Config = {
 			colors: {
 				app: {
 					primary: "#FBEAE5FF",
+					secondary: "hsl(var(--app-secondary))",
+					"dark-glass": "hsl(var(--app-dark-glass))",
+					"glass-border": "hsl(var(--app-glass-border))",
 				},
 				border: "hsl(var(--border))",
 				input: "hsl(var(--input))",
@@ -62,6 +65,14 @@ const config: Config = {
 					"4": "hsl(var(--chart-4))",
 					"5": "hsl(var(--chart-5))",
 				},
+			},
+			boxShadow: {
+				"apple-sm": "var(--shadow-apple-sm)",
+				"apple-md": "var(--shadow-apple-md)",
+				"apple-lg": "var(--shadow-apple-lg)",
+				"apple-xl": "var(--shadow-apple-xl)",
+				"apple-2xl": "var(--shadow-apple-2xl)",
+				"apple-header": "var(--shadow-apple-header)",
 			},
 			borderRadius: {
 				lg: "var(--radius)",
