@@ -203,7 +203,7 @@ class ArticleService {
 
 			.from("articles")
 			.select("*")
-			.eq("user_id", userId)
+			.eq("user", userId)
 
 			.order("created_at", { ascending: false });
 
