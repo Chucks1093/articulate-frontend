@@ -1,0 +1,59 @@
+.hero__bg {
+	background-image: radial-gradient(#a67334 0.5px, transparent 0.75px);
+	background-size: 20px 20px;
+	background-position:
+		0 0,
+		10px 10px;
+
+	@media screen and (max-width: 800px) {
+		background-image: radial-gradient(#a67334 0.5px, transparent 0.5px);
+	}
+}
+
+.ticket-border {
+	padding: 2px; /* Border thickness */
+	background: #000000; /* Border color */
+	clip-path: polygon(
+		0% 20px,
+		20px 20px,
+		20px 0%,
+		calc(100% - 20px) 0%,
+		calc(100% - 20px) 20px,
+		100% 20px,
+		100% calc(50% - 15px),
+		calc(100% - 15px) 50%,
+		100% calc(50% + 15px),
+		100% calc(100% - 20px),
+		calc(100% - 20px) calc(100% - 20px),
+		calc(100% - 20px) 100%,
+		20px 100%,
+		20px calc(100% - 20px),
+		0% calc(100% - 20px),
+		0% calc(50% + 15px),
+		15px 50%,
+		0% calc(50% - 15px)
+	);
+}
+
+.ticket-shape {
+	clip-path: polygon(
+		0% 20px,
+		20px 20px,
+		20px 0%,
+		calc(100% - 20px) 0%,
+		calc(100% - 20px) 20px,
+		100% 20px,
+		100% calc(50% - 15px),
+		calc(100% - 15px) 50%,
+		100% calc(50% + 15px),
+		100% calc(100% - 20px),
+		calc(100% - 20px) calc(100% - 20px),
+		calc(100% - 20px) 100%,
+		20px 100%,
+		20px calc(100% - 20px),
+		0% calc(100% - 20px),
+		0% calc(50% + 15px),
+		15px 50%,
+		0% calc(50% - 15px)
+	);
+}

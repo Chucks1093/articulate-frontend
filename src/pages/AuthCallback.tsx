@@ -27,7 +27,7 @@ export default function AuthCallback() {
 					setStatus("Sign-in successful! Redirecting...");
 
 					setTimeout(() => {
-						navigate("/dashboard", { replace: true });
+						navigate("/", { replace: true });
 					}, 1000);
 				} else {
 					setStatus(`Sign-in failed: ${result.error}`);
@@ -52,7 +52,7 @@ export default function AuthCallback() {
 	}, []); // Empty dependency array
 
 	return (
-		<div className='flex min-h-screen flex-col items-center justify-center p-4 h-full bg-app-primary noice'>
+		<div className='flex min-h-screen flex-col items-center justify-center p-4 h-full bg-app-primary hero__bg'>
 			<div className='w-full max-w-md rounded-lg bg-white p-8 shadow-md'>
 				<div className='flex flex-col items-center justify-center'>
 					<div className='mb-4 h-8 w-8 animate-spin rounded-full border-2 border-gray-300 border-t-blue-600'></div>
