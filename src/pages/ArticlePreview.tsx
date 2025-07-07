@@ -49,11 +49,6 @@ function ArticleHeader({ user }: { user: any }) {
 							className='flex items-center gap-3 hover:opacity-80 transition-opacity'>
 							<div className='bg-app-primary flex items-center justify-center p-2 rounded-full relative'>
 								<img
-									src='/icons/bubble-chat.svg'
-									alt=''
-									className='absolute -left-2 -top-2 w-6 h-6'
-								/>
-								<img
 									src='/icons/logo.svg'
 									alt='Articulate Logo'
 									className='h-6 w-6'
@@ -117,11 +112,6 @@ function ArticleFooter() {
 					<div className='flex flex-col sm:flex-row sm:items-center gap-6 lg:gap-8'>
 						<div className='flex items-center gap-3'>
 							<div className='bg-app-primary flex items-center justify-center p-2 rounded-full relative'>
-								<img
-									src='/icons/bubble-chat.svg'
-									alt=''
-									className='absolute -left-2 -top-2 w-6 h-6'
-								/>
 								<img
 									src='/icons/logo.svg'
 									alt='Articulate Logo'

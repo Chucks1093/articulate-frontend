@@ -279,14 +279,14 @@ export function URLTransformForm() {
 
 function Hero() {
 	return (
-		<section className='bg-white md:min-h-[45rem] h-screen flex items-center  relative overflow-hidden justify-center w-full '>
-			<div className='max-w-3xl relative z-10 h-fit ticket-border top-10'>
-				<div className='bg-white py-16 ticket-shape'>
+		<section className='bg-white md:min-h-[45rem] h-screen flex md:items-center  relative overflow-hidden justify-center w-full  '>
+			<div className='max-w-3xl relative z-10 h-fit  ticket-border top-[17vh] md:top-10 mx-8'>
+				<div className='bg-white py-16 ticket-shape px-3'>
 					<div className='z-10 relative text-center'>
-						<h1 className='text-zinc-800 font-serif text-[2.7rem] font-medium mb-6 leading-tight'>
+						<h1 className='text-zinc-800 font-serif text-[1.3rem] md:text-[2.7rem] font-medium  mb-4 md:mb-6 leading-tight'>
 							Break language barriers and <br /> unlock global knowledge
 						</h1>
-						<p className='w-[85%] text-zinc-600 text-sm mb-8 leading-relaxed mx-auto'>
+						<p className='w-[85%] text-zinc-600 text-xs md:text-center text-justify  md:text-sm mb-8 leading-relaxed mx-auto'>
 							Our AI-powered platform instantly converts any online
 							article into beautifully formatted PDFs in 150+ languages.
 							Access knowledge without barriers, improve language skills,
@@ -303,7 +303,7 @@ function Hero() {
 			</div>
 
 			{/* Animated Flags Section */}
-			<div className='w-full  absolute  inset-0ive  h-full'>
+			<div className='w-full  absolute  inset  h-full'>
 				<div className='w-full relative md:block h-full'>
 					{/* <CareerCard className='absolute bottom-20 h-fit -left-14 z-10 bg-white shadow-md ' /> */}
 					<FeatureItem

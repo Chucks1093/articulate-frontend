@@ -30,21 +30,23 @@ function Header() {
 	}, []);
 
 	return (
-		<header className='absolute flex items-center justify-between w-[90%] mx-auto max-w-5xl md:top-[5vh] top-[8vh] left-1/2 -translate-x-1/2 md:px-4   z-20 bg-zinc-800  rounded-[3rem]  shadow-apple-xl py-3 px-3'>
-			<div className='flex items-center gap-2 relative'>
+		<header className='absolute flex items-center justify-between w-[90%] mx-auto max-w-5xl top-[2vh] md:top-[3vh] left-1/2 -translate-x-1/2 md:px-4   z-20 bg-zinc-800  rounded-[3rem]  shadow-apple-xl py-3 px-3'>
+			<Link
+				to='/'
+				className='flex items-center gap-2 relative'>
 				<div className='p-2 bg-app-primary  rounded-full'>
 					<img
 						src='/icons/logo.svg'
 						alt='Articulate Logo'
-						className='h-[1.4rem] md:h-[1.4rem]  '
+						className='h-[.9rem] md:h-[1.4rem]  '
 					/>
 				</div>
 
-				<p className='text-app-primary font-grotesk font-medium text-3xl'>
+				<p className='text-app-primary font-grotesk font-medium  text-xl md:text-3xl'>
 					Articulate
 				</p>
-			</div>
-			<div className='flex items-center justify-center gap-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-md text-gray-300'>
+			</Link>
+			<div className='md:flex items-center justify-center gap-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-md text-gray-300 hidden'>
 				<Link
 					to='/pricing'
 					className=''>
