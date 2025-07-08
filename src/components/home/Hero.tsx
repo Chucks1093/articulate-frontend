@@ -33,7 +33,10 @@ export function URLTransformForm() {
 		console.log("Target Language:", selectedLanguage);
 
 		try {
-			if (!profile) return;
+			if (!profile || !profile.id)
+				return showToast.error(
+					"You have to Sign in to Translate your article"
+				);
 
 			await articleService.translateArticle({
 				url,
@@ -280,13 +283,19 @@ export function URLTransformForm() {
 function Hero() {
 	return (
 		<section className='bg-white md:min-h-[45rem] h-screen flex md:items-center  relative overflow-hidden justify-center w-full  '>
-			<div className='max-w-3xl relative z-10 h-fit  ticket-border top-[17vh] md:top-10 mx-8'>
-				<div className='bg-white py-16 ticket-shape px-3'>
+			<div className='max-w-3xl relative z-10 h-fit  ticket-border top-[15vh] md:top-[1.5rem] mx-8 rounded-md'>
+				<div className='bg-white py-9 md:py-14 ticket-shape px-3 rounded-md'>
 					<div className='z-10 relative text-center'>
-						<h1 className='text-zinc-800 font-serif text-[1.3rem] md:text-[2.7rem] font-medium  mb-4 md:mb-6 leading-tight'>
-							Break language barriers and <br /> unlock global knowledge
+						<img
+							className='w-[6rem] md:w-[8rem] mx-auto mb-4'
+							src='/icons/wavy-line.svg'
+							alt=''
+						/>
+						<h1 className='text-zinc-800 text-[1.4rem] md:text-[2.3rem] font-medium  mb-4 md:mb-6 leading-tight font-montserrat'>
+							Break language barriers and{" "}
+							<p className='hidden md:block' /> unlock global knowledge
 						</h1>
-						<p className='w-[85%] text-zinc-600 text-xs md:text-center text-justify  md:text-sm mb-8 leading-relaxed mx-auto'>
+						<p className='w-[95%] md:w-[85%] text-zinc-600 text-xs md:text-center text-justify text-justify-last-line md:text-sm mb-8 leading-relaxed mx-auto'>
 							Our AI-powered platform instantly converts any online
 							article into beautifully formatted PDFs in 150+ languages.
 							Access knowledge without barriers, improve language skills,
@@ -350,12 +359,6 @@ function Hero() {
 					</div>
 				</div>
 			</div>
-
-			<img
-				src='/images/shadow.avif'
-				alt=''
-				className='absolute inset-0 opacity-30 invert brightness-200 hidden'
-			/>
 		</section>
 	);
 }

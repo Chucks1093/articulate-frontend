@@ -49,7 +49,7 @@ const FeatureItem: React.FC<FeatureItemProps> = ({
 			{...props}>
 			<motion.div
 				className={cn(
-					"flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full group-hover:scale-110 transition-transform duration-300",
+					"flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full group-hover:scale-110 transition-transform duration-300 overflow-hidden",
 					iconBgColor
 				)}
 				whileHover={{ rotate: 5 }}
@@ -59,7 +59,7 @@ const FeatureItem: React.FC<FeatureItemProps> = ({
 				) : (
 					<img
 						src={`/icons/flags/${code}.svg`}
-						className='h-full w-full rounded-md object-cover'
+						className='h-[150%] rounded-md object-cover'
 						alt={`${code} flag`}
 					/>
 				)}
