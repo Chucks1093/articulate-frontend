@@ -10,6 +10,8 @@ import Pricing from "./pages/Pricing";
 import { AutumnProvider } from "autumn-js/react";
 import { getArticleDetails } from "./scripts/article.loader";
 import { env } from "./utils/env.utils";
+import { requireAuth } from "./scripts/auth.loader";
+import ArticleOverviewLayout from "./components/article/ArticleOverviewLayout";
 
 const router = createBrowserRouter([
 	{
@@ -33,14 +35,26 @@ const router = createBrowserRouter([
 
 	{
 		path: "/articles",
-		element: <TranslatedArticles />,
+		loader: requireAuth,
+		element: <ArticleOverviewLayout />,
+		children: [
+			{
+				index: true,
+				element: <TranslatedArticles />,
+			},
+			{
+				path: "/articles/:docId",
+				loader: getArticleDetails,
+				element: <ArticlePreview />,
+			},
+		],
 	},
 
-	{
-		path: "/articles/:docId",
-		element: <ArticlePreview />,
-		loader: getArticleDetails,
-	},
+	// {
+	// 	path: "/articles/:docId",
+	// 	element: <ArticlePreview />,
+	// 	loader: getArticleDetails,
+	// },
 
 	{
 		path: "/auth/callback",

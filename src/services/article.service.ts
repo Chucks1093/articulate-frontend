@@ -15,6 +15,7 @@ export interface Article {
 	title: string;
 	description: string | null;
 	author: string;
+	cover_photo: string | null;
 	author_avatar: string | null;
 	body: string;
 	original_url: string;
@@ -214,7 +215,6 @@ class ArticleService {
 		const { data, error } = await this.supabase
 			.from("articles")
 			.select("*")
-			.eq("user_id", userId)
 			.order("created_at", { ascending: false })
 			.range(from, to);
 
