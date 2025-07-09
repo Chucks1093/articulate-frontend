@@ -1,6 +1,7 @@
 import { redirect } from "react-router";
 import { Article, articleService } from "@/services/article.service";
 import { authService } from "@/services/auth.service";
+import { Profile } from "@/hooks/useProfileStore";
 
 interface ArticleParams {
 	params: {
@@ -9,10 +10,7 @@ interface ArticleParams {
 }
 
 export interface ArticleLoaderResponse {
-	user: {
-		authenticated: boolean;
-		[key: string]: any;
-	};
+	user: Profile;
 	article: Article | null;
 	isValid: boolean;
 	error?: string;

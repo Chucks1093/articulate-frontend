@@ -14,8 +14,7 @@ import {
 	articleService,
 	PaginatedResponse,
 } from "@/services/article.service";
-import { authService } from "@/services/auth.service";
-import Header from "@/components/article/Header";
+import { useProfileStore } from "@/hooks/useProfileStore";
 
 const ITEMS_PER_PAGE = 12;
 
@@ -27,19 +26,20 @@ const TranslatedArticles: React.FC = () => {
 	const [paginatedData, setPaginatedData] =
 		useState<PaginatedResponse<Article> | null>(null);
 	const [allArticles, setAllArticles] = useState<Article[]>([]);
-	const [userId, setUserId] = useState<string>("");
+
+	const { profile } = useProfileStore();
 
 	// Load articles with pagination from Supabase
 	const loadArticles = useCallback(
 		async (page: number = 1) => {
-			if (!userId) return;
+			if (!profile?.id) return;
 
 			setIsLoading(true);
 			try {
 				const response = await articleService.getAllArticles({
 					page,
 					limit: ITEMS_PER_PAGE,
-					userId: userId,
+					userId: profile.id,
 				});
 
 				setPaginatedData(response);
@@ -62,7 +62,7 @@ const TranslatedArticles: React.FC = () => {
 				setIsLoading(false);
 			}
 		},
-		[userId]
+		[profile?.id]
 	);
 
 	// Client-side filtering and search
@@ -115,27 +115,13 @@ const TranslatedArticles: React.FC = () => {
 		};
 	}, [filteredArticles, currentPage]);
 
-	// Get user and load initial articles
+	// Load articles when profile is available
 	useEffect(() => {
-		const initializeData = async () => {
-			try {
-				const user = await authService.getCurrentUser();
-				setUserId(user.id);
-			} catch (error) {
-				console.error("Error getting user:", error);
-			}
-		};
-
-		initializeData();
-	}, []);
-
-	// Load articles when userId is available
-	useEffect(() => {
-		if (userId) {
+		if (profile?.id) {
 			loadArticles(1);
 			setCurrentPage(1);
 		}
-	}, [userId, loadArticles]);
+	}, [profile?.id, loadArticles]);
 
 	// Reset to first page when search or language filter changes
 	useEffect(() => {
@@ -185,16 +171,15 @@ const TranslatedArticles: React.FC = () => {
 	const { data: articles, pagination } = paginatedFilteredArticles;
 
 	return (
-		<div className='bg-gray-50 min-h-screen py-10 hero__bg'>
-			<Header className='static mx-auto translate-x-0 max-w-5xl' />
-
+		<div className='bg-gray-50 min-h-screen md:pt-[14vh] pt-[8vh] pt py-10 hero__bg'>
 			{/* Main Content */}
 			<motion.div
-				className='max-w-7xl mx-auto pt-16 px-4 sm:px-6 lg:px-8'
+				className='max-w-7xl mx-auto pt-10 px-4 sm:px-6 lg:px-8'
 				initial={{ opacity: 0, y: 30 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.6, ease: "easeOut" }}>
 				{/* Search and Filter Section */}
+
 				<SearchAndFilter
 					searchTerm={searchTerm}
 					onSearchChange={handleSearchChange}
@@ -210,7 +195,7 @@ const TranslatedArticles: React.FC = () => {
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ duration: 0.3 }}
-						className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'>
+						className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 md:px-0'>
 						{Array.from({ length: 8 }).map((_, index) => (
 							<ArticleCardSkeleton key={index} />
 						))}
@@ -221,7 +206,7 @@ const TranslatedArticles: React.FC = () => {
 							initial={{ opacity: 0, y: 25 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6, delay: 0.2 }}
-							className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8'>
+							className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8 px-4 md:px-0'>
 							{articles.map((article) => {
 								return (
 									<ArticleCard
