@@ -38,11 +38,6 @@ const GoogleIcon = () => (
 const NoraLogo = () => (
 	<div className=' bg-app-primary  flex items-center justify-center p-6 pt-5 rounded-full noice relative'>
 		<img
-			src='/icons/bubble-chat.svg'
-			alt=''
-			className='absolute -left-4 -top-4 w-12'
-		/>
-		<img
 			src='/icons/logo.svg'
 			alt=''
 			className=' h-[2.4rem]'
