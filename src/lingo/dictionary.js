@@ -3,7 +3,7 @@ export default {
   files: {
     "components/article/ArticleCard.tsx": {
       entries: {
-        "9/0/init/0/body/6/argument/11/1/1": {
+        "9/0/init/0/body/7/argument/11/1/1": {
           content: {
             de: "<element:Eye></element:Eye> Anzeigen",
             en: "<element:Eye></element:Eye> View",
@@ -12,7 +12,7 @@ export default {
           },
           hash: "5375aa9a678c74c50112167ed702b884",
         },
-        "9/0/init/0/body/6/argument/11/3/1": {
+        "9/0/init/0/body/7/argument/11/3/1": {
           content: {
             de: "PDF",
             en: "PDF",
@@ -21,7 +21,7 @@ export default {
           },
           hash: "701521ad108cb43a317423e1ce97f66f",
         },
-        "9/0/init/0/body/6/argument/11/3/5/1/1-aria-label": {
+        "9/0/init/0/body/7/argument/11/3/5/1/1-aria-label": {
           content: {
             de: "Weitere Aktionen",
             en: "More actions",
@@ -30,16 +30,25 @@ export default {
           },
           hash: "443bd91d1d6563e0344b8323f75928bd",
         },
-        "9/0/init/0/body/6/argument/11/3/5/3/3": {
+        "9/0/init/0/body/7/argument/11/3/5/3/3": {
+          content: {
+            de: "<element:Copy></element:Copy> Link kopieren",
+            en: "<element:Copy></element:Copy> Copy Link",
+            es: "<element:Copy></element:Copy> Copiar enlace",
+            fr: "<element:Copy></element:Copy> Copier le lien",
+          },
+          hash: "95a9e75db9ccf68347e4983105ae1f72",
+        },
+        "9/0/init/0/body/7/argument/11/3/5/3/5": {
           content: {
             de: "<element:ExternalLink></element:ExternalLink> Original besuchen",
             en: "<element:ExternalLink></element:ExternalLink> Visit Original",
-            es: "<element:ExternalLink></element:ExternalLink> Visitar Original",
+            es: "<element:ExternalLink></element:ExternalLink> Visitar original",
             fr: "<element:ExternalLink></element:ExternalLink> Visiter l'original",
           },
           hash: "d087a8f3c88ed95586a0754588569c66",
         },
-        "9/0/init/0/body/6/argument/7/3/expression/right": {
+        "9/0/init/0/body/7/argument/7/3/expression/right": {
           content: {
             de: "von {article.author}",
             en: "by {article.author}",
@@ -69,6 +78,11 @@ export default {
             fr: "Articulate",
           },
           hash: "16317c5c1a69e9afbcbe170a2413e656",
+        },
+        "4/body/4/argument/1/3/3/1/5": {
+          content: {
+            de: "",
+          },
         },
         "4/body/4/argument/1/3/3/5/1/1/1-alt": {
           content: {
@@ -161,14 +175,10 @@ export default {
           },
           hash: "c5ef2d2c55c6a65b2b31321e3b9d5b5f",
         },
-        "12/body/4/argument/3/1/1-alt": {
+        "12/body/3/0/init/body/1/argument/3/9/1-alt": {
           content: {
             de: "Articulate Logo",
-            en: "Articulate Logo",
-            es: "Logotipo de Articulate",
-            fr: "Logo Articulate",
           },
-          hash: "f9fd2de9ea8b044ffcfa1030fbc353c1",
         },
       },
     },
@@ -229,6 +239,7 @@ export default {
         "8/0/init/body/4/argument/7/3/1/3/3/7/expression/0/body/1/1-alt": {
           content: {
             de: "",
+            es: "",
             fr: "",
           },
         },
@@ -276,19 +287,19 @@ export default {
         },
         "14/body/10/0/init/body/1/consequent/0/consequent/0/argument/3/7/1/3": {
           content: {
-            de: "Kontaktieren Sie uns",
+            de: "Artikel anzeigen",
             en: "View Articles",
-            es: "Envíenos un correo electrónico",
-            fr: "Nous contacter",
+            es: "Ver artículos",
+            fr: "Voir les articles",
           },
           hash: "68f4b4a1c640a972c5562b4d5139da06",
         },
         "14/body/10/0/init/body/1/consequent/0/consequent/0/argument/3/9/3": {
           content: {
-            de: "Artikel anzeigen",
+            de: "Kontaktieren Sie uns",
             en: "Email Us",
-            es: "Ver artículos",
-            fr: "Voir les articles",
+            es: "Envíenos un correo electrónico",
+            fr: "Nous contacter",
           },
           hash: "c5ef2d2c55c6a65b2b31321e3b9d5b5f",
         },
@@ -480,7 +491,7 @@ export default {
           content: {
             de: "Sprachbarrieren überwinden und <element:p></element:p> globales Wissen freischalten",
             en: "Break language barriers and <element:p></element:p> unlock global knowledge",
-            es: "Romper las barreras del idioma y <element:p></element:p> desbloquear el conocimiento global",
+            es: "Romper barreras lingüísticas y <element:p></element:p> desbloquear conocimientos globales",
             fr: "Brisez les barrières linguistiques et <element:p></element:p> déverrouillez les connaissances mondiales",
           },
           hash: "62282349f29e8d2e97cbfe814909ace0",
@@ -489,7 +500,7 @@ export default {
           content: {
             de: "Unsere künstliche Intelligenz-gestützte Plattform wandelt jeden Online-Artikel sofort in schön formatierte PDFs in über 150 Sprachen um. Greifen Sie auf Wissen ohne Barrieren zu, verbessern Sie Ihre Sprachkenntnisse und entdecken Sie Inhalte aus der ganzen Welt mit nur einem Klick.",
             en: "Our AI-powered platform instantly converts any online article into beautifully formatted PDFs in 150+ languages. Access knowledge without barriers, improve language skills, and explore content from around the world with just one click.",
-            es: "Nuestra plataforma impulsada por IA convierte instantáneamente cualquier artículo en línea en PDFs perfectamente formateados en más de 150 idiomas. Accede al conocimiento sin barreras, mejora tus habilidades lingüísticas y explora contenido de todo el mundo con solo un clic.",
+            es: "Nuestra plataforma impulsada por IA convierte instantáneamente cualquier artículo en línea en PDFs con formato hermoso en más de 150 idiomas. Accede al conocimiento sin barreras, mejora tus habilidades lingüísticas y explora contenido de todo el mundo con solo un clic.",
             fr: "Notre plateforme alimentée par l'IA convertit instantanément n'importe quel article en ligne en PDFs parfaitement formatés dans plus de 150 langues. Accédez aux connaissances sans barrières, améliorez vos compétences linguistiques et explorez le contenu du monde entier en un seul clic.",
           },
           hash: "541ad505270ed85d20231dc75b223f28",
@@ -525,7 +536,7 @@ export default {
           content: {
             de: "Schön formatierte Dokumente",
             en: "Beautiful formatted documents",
-            es: "Documentos perfectamente formateados",
+            es: "Documentos con formato hermoso",
             fr: "Documents parfaitement formatés",
           },
           hash: "12d526dc8a48ffdd2b608e0b0042900e",
@@ -544,6 +555,19 @@ export default {
     "components/ui/dialog.tsx": {
       entries: {
         "10/0/init/0/body/3/3/3": {
+          content: {
+            de: "Schließen",
+            en: "Close",
+            es: "Cerrar",
+            fr: "Fermer",
+          },
+          hash: "2c2e22f8424a1031de89063bd0022e16",
+        },
+      },
+    },
+    "components/ui/sheet.tsx": {
+      entries: {
+        "13/0/init/0/body/3/3/3": {
           content: {
             de: "Schließen",
             en: "Close",
@@ -630,7 +654,7 @@ export default {
         },
         "6/0/init/body/5/argument/3/5/23/expression/right/1/3": {
           content: {
-            de: "Melden Sie sich an, um unseren künstlichen Intelligenz-gestützten Übersetzungsdienst zu nutzen und Ihre Lieblingsartikel zu speichern.",
+            de: "Melden Sie sich an, um unseren künstliche Intelligenz-gestützten Übersetzungsdienst zu nutzen und Ihre Lieblingsartikel zu speichern.",
             en: "Sign in to access our AI-powered translation service and save your favorite articles.",
             es: "Inicia sesión para acceder a nuestro servicio de traducción impulsado por IA y guarda tus artículos favoritos.",
             fr: "Connectez-vous pour accéder à notre service de traduction alimenté par l'IA et enregistrez vos articles préférés.",
@@ -666,13 +690,6 @@ export default {
             fr: "",
           },
         },
-        "7/0/init/body/3-alt": {
-          content: {
-            de: "",
-            es: "",
-            fr: "",
-          },
-        },
         "8/0/init/body/3/argument/1/1/7/11": {
           content: {
             de: "<element:GoogleIcon></element:GoogleIcon> Mit Google fortfahren",
@@ -693,9 +710,9 @@ export default {
         },
         "8/0/init/body/3/argument/1/1/7/7/3": {
           content: {
-            de: "Durch das Fortfahren stimmen Sie unseren Nutzungsbedingungen und unserer Datenschutzrichtlinie zu. Transformieren Sie jeden Artikel in schön formatierte PDFs",
+            de: "Durch das Fortfahren stimmen Sie unseren Nutzungsbedingungen und Datenschutzrichtlinien zu. Transformieren Sie jeden Artikel in schön formatierte PDFs",
             en: "By continuing, you agree to our Terms of Service and Privacy Policy. Transform any article into beautifully formatted PDFs",
-            es: "Al continuar, acepta nuestros Términos de servicio y Política de privacidad. Transforma cualquier artículo en PDFs perfectamente formateados",
+            es: "Al continuar, acepta nuestros Términos de servicio y Política de privacidad. Transforma cualquier artículo en PDFs con formato hermoso",
             fr: "En continuant, vous acceptez nos Conditions d'utilisation et notre Politique de confidentialité. Transformez n'importe quel article en PDFs parfaitement formatés",
           },
           hash: "f86539736e9a8d0c38933d1db3c364b9",
@@ -814,9 +831,9 @@ export default {
         },
         "17/0/init/body/1/argument/11/7/1": {
           content: {
-            de: "Alle Pläne enthalten den Zugriff auf 20+ Sprachen und die PDF-Erstellung. Jederzeit kündbar.",
+            de: "Alle Pläne enthalten den Zugriff auf über 20 Sprachen und die PDF-Erstellung. Jederzeit kündbar.",
             en: "All plans include access to 20+ languages and PDF generation. Cancel anytime.",
-            es: "Todos los planes incluyen acceso a más de 20 idiomas y generación de PDF. Cancelar en cualquier momento.",
+            es: "Todos los planes incluyen acceso a más de 20 idiomas y generación de PDF. Cancela en cualquier momento.",
             fr: "Tous les plans incluent l'accès à 20+ langues et la génération de PDF. Annulez à tout moment.",
           },
           hash: "400f91d6a02402a5ca2c87e827799004",
@@ -838,7 +855,7 @@ export default {
         "10/0/init/body/19/argument/3/7/expression/alternate/alternate/alternate/5":
           {
             content: {
-              de: "Beginnen Sie mit dem Übersetzen von Artikeln mit unserem künstlichen Intelligenz-gestützten Übersetzungs-Tool. Ihre übersetzten Artikel erscheinen hier.",
+              de: "Beginnen Sie mit dem Übersetzen von Artikeln mit unserem künstliche Intelligenz-gestützten Übersetzungs-Tool. Ihre übersetzten Artikel erscheinen hier.",
               en: "Start translating articles using our AI-powered translation tool. Your translated articles will appear here.",
               es: "Comienza a traducir artículos utilizando nuestra herramienta de traducción impulsada por IA. Tus artículos traducidos aparecerán aquí.",
               fr: "Commencez à traduire des articles en utilisant notre outil de traduction alimenté par l'IA. Vos articles traduits apparaîtront ici.",
@@ -865,12 +882,22 @@ export default {
             },
             hash: "12508adc5f806c38b1d94ef23d17a2b4",
           },
+        "10/0/init/body/19/argument/3/7/expression/alternate/alternate/consequent/7":
+          {
+            content: {
+              de: "Filter zurücksetzen",
+              en: "Clear filters",
+              es: "Borrar filtros",
+              fr: "Effacer les filtres",
+            },
+            hash: "36f5d05a01edc34783bcab4f6e84aac9",
+          },
         "10/0/init/body/19/argument/3/7/expression/alternate/consequent/5/expression/right/1/1":
           {
             content: {
-              de: "Anzeige <element:span><expression/></element:span> bis <element:span><function:Math.min/></element:span> von <element:span>{pagination.total}</element:span> Artikel(n)",
+              de: "Anzeigen <element:span><expression/></element:span> bis <element:span><function:Math.min/></element:span> von <element:span>{pagination.total}</element:span> Artikel(s)",
               en: "Showing <element:span><expression/></element:span>  to <element:span><function:Math.min/></element:span>  of <element:span>{pagination.total}</element:span>  article(s)",
-              es: "Mostrando <element:span><expression/></element:span>  a <element:span><function:Math.min/></element:span>  de <element:span>{pagination.total}</element:span>  artículo(s)",
+              es: "Mostrando <element:span><expression/></element:span> a <element:span><function:Math.min/></element:span> de <element:span>{pagination.total}</element:span> artículo(s)",
               fr: "Affichage <element:span><expression/></element:span> à <element:span><function:Math.min/></element:span> sur <element:span>{pagination.total}</element:span> article(s)",
             },
             hash: "f2b666971d5c1073888bd0fc0a4a8ea0",
@@ -905,11 +932,6 @@ export default {
             },
             hash: "415b69d356dca0c85492c614018cdb27",
           },
-        "10/0/init/body/19/argument/3/7/expression/alternate/consequent/7": {
-          content: {
-            de: "Filter zurücksetzen",
-          },
-        },
       },
     },
   },
