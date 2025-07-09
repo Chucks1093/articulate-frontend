@@ -1,86 +1,194 @@
 // components/ArticleCard.tsx
-import React from "react";
-import { Download, Eye, ExternalLink } from "lucide-react";
+import React, { memo, useState } from "react";
+import {
+	Download,
+	Eye,
+	ExternalLink,
+	MoreVertical,
+	Trash2,
+} from "lucide-react";
 import { TranslatedArticle, Language } from "@/types/article.types";
-import { formatDate, getLanguageName } from "@/utils/helpers.utils";
+import { formatDate } from "@/utils/helpers.utils";
 import { useNavigate } from "react-router";
+import { cn } from "@/lib/utils";
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuSeparator,
+	DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
+import { articleService } from "@/services/article.service";
 
 interface ArticleCardProps {
 	article: TranslatedArticle["article"];
 	languages: Language[];
+	bg?: string;
+	onDelete?: (articleId: string) => Promise<void> | void;
 }
 
-const ArticleCard: React.FC<ArticleCardProps> = ({ article, languages }) => {
+const ArticleCard = memo(function ArticleCard({
+	article,
+	bg = "bg-gray-100",
+}: ArticleCardProps) {
 	const navigate = useNavigate();
+	const [downloading, setDownloading] = useState(false);
+	const [deleting, setDeleting] = useState(false);
+
 	const handleView = () => {
-		console.log("Viewing article:", article.title);
+		navigate(`/articles/${article.doc_id}`);
 	};
 
-	const handleDownload = () => {
-		console.log("Downloading article:", article.title);
+	const handleDownload = async () => {
+		try {
+			setDownloading(true);
+			console.log("Downloading article:", article.title);
+			// Add your download logic here
+		} catch (error) {
+			console.error("Download failed:", error);
+		} finally {
+			setDownloading(false);
+		}
 	};
+
+	const handleDelete = async () => {
+		// Optional: Add confirmation dialog
+		if (!confirm(`Are you sure you want to delete "${article.title}"?`)) {
+			return;
+		}
+
+		try {
+			setDeleting(true);
+			await articleService.deleteArticle(article.doc_id, "");
+		} catch (error) {
+			console.error("Delete failed:", error);
+			// You might want to show a toast notification here
+		} finally {
+			setDeleting(false);
+		}
+	};
+
+	const handleVisitOriginal = () => {
+		window.open(article.original_url, "_blank", "noopener noreferrer");
+	};
+
+	const dateTime = formatDate(article.created_at);
 
 	return (
-		<article className='bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-lg transition-all duration-200 hover:border-gray-300'>
-			{/* Header with Flag and View Button */}
-			<div className='flex justify-between items-start mb-4'>
+		<article
+			className={cn(
+				"p-2 shadow-md rounded-lg border border-gray-200 bg-white hover:shadow-lg transition-shadow duration-200",
+				deleting && "opacity-50 pointer-events-none"
+			)}>
+			{/* Header Section */}
+			<div
+				className={cn(
+					"flex justify-between items-center rounded-t-lg p-4 bg-gray-100 .border-b border-gray-300",
+					bg
+				)}>
 				<div className='flex items-center gap-2'>
-					<img
-						src={`/icons/flags/${article.converted_lang}.svg`}
-						alt={`${article.converted_lang} flag`}
-						className='w-8 h-8 rounded-full object-cover'
-					/>
-					<span className='text-xs text-gray-500 font-medium'>
-						{formatDate(article.created_at)}
+					<div className='h-8 w-8 border-4 border-white ring-1 ring-gray-200 rounded-full overflow-hidden flex items-center justify-center bg-white shadow-sm'>
+						<img
+							src={`/icons/flags/${article.converted_lang}.svg`}
+							alt={`${article.converted_lang} flag`}
+							className='h-14 w-14 object-cover'
+						/>
+					</div>
+
+					<p className='text-xs text-gray-700 font-grotesk font-semibold'>
+						{dateTime}
+					</p>
+				</div>
+				<div className='flex items-center gap-2'>
+					{/* Language Badge */}
+					<span className='px-2 py-1 bg-zinc-50 text-zinc-500 text-xs font-medium rounded-full border border-zinc-400 font-grotesk'>
+						{article.converted_lang}
 					</span>
 				</div>
-				<a
-					href={`/articles/${article.doc_id}`}
-					onClick={handleView}
-					className='text-gray-400 hover:text-blue-600 transition-colors p-1 rounded-full hover:bg-blue-50'>
-					<Eye className='w-5 h-5' />
-				</a>
 			</div>
 
-			{/* Article Title */}
-			<h2 className='text-lg font-semibold text-gray-900 mb-3 line-clamp-3 leading-tight'>
-				{article.title}
-			</h2>
-
-			{/* Tags */}
-			<div className='flex flex-wrap gap-2 mb-4'>
-				<span className='px-3 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded-full'>
-					{getLanguageName(article.converted_lang, languages)}
-				</span>
-				<span className='px-3 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full'>
-					Translated
-				</span>
-			</div>
-
-			{/* Author Info */}
-			<div className='flex items-center gap-2 mb-4 text-sm text-gray-600'>
-				<span>by {article.author}</span>
+			{/* Title Section */}
+			<div
+				className={cn(
+					"h-[14rem] pt-4 px-4 bg-gray-100 overflow-hidden flex flex-col justify-between pb-3",
+					bg
+				)}>
+				<h1 className='font-montserrat text-lg text-gray-600 leading-tight line-clamp-6'>
+					{article.title}
+				</h1>
+				{article.author && (
+					<p className='text-gray-400 text-sm font-grotesk mt-3'>
+						by {article.author}
+					</p>
+				)}
 			</div>
 
 			{/* Action Buttons */}
-			<div className='flex gap-2 pt-2'>
-				<a
-					href={article.original_url}
-					target='_blank'
-					rel='noopener noreferrer'
-					className='flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium py-2.5 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2'>
-					<ExternalLink className='w-4 h-4' />
-					Original
-				</a>
-				<button
-					onClick={handleDownload}
-					className='flex-1 bg-gray-900 hover:bg-gray-800 text-white text-sm font-medium py-2.5 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2'>
-					<Download className='w-4 h-4' />
-					Download
-				</button>
+			<div className='flex justify-between items-center gap-3 pt-4 pb-2 px-2'>
+				<div className='flex gap-2 flex-1'>
+					<button
+						onClick={handleView}
+						disabled={deleting}
+						className='bg-zinc-800 hover:bg-zinc-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 font-grotesk disabled:opacity-50 disabled:cursor-not-allowed'>
+						<Eye className='w-4 h-4' />
+						View
+					</button>
+				</div>
+
+				<div className='flex items-center gap-2'>
+					<span className='px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-lg border border-gray-300 font-grotesk'>
+						PDF
+					</span>
+
+					{/* More Actions Dropdown - Using shadcn */}
+					<DropdownMenu>
+						<DropdownMenuTrigger asChild>
+							<Button
+								variant='ghost'
+								size='icon'
+								disabled={deleting}
+								className='bg-gray-50 hover:bg-gray-400 text-zinc-500 h-8 w-8 rounded-lg border border-gray-300 disabled:opacity-50'
+								aria-label='More actions'>
+								<MoreVertical className='w-4 h-4' />
+							</Button>
+						</DropdownMenuTrigger>
+
+						<DropdownMenuContent
+							align='center'
+							className='bg-white border-gray-300 rounded-lg min-w-[160px] shadow-lg'>
+							<DropdownMenuItem
+								onClick={handleDownload}
+								disabled={downloading || deleting}
+								className='text-gray-700 hover:bg-gray-50 focus:text-black hover:text-gray-700 focus:bg-gray-100 cursor-pointer font-grotesk disabled:opacity-50 disabled:cursor-not-allowed'>
+								<Download className='w-4 h-4 mr-2' />
+								{downloading ? "Downloading..." : "Download"}
+							</DropdownMenuItem>
+
+							<DropdownMenuItem
+								onClick={handleVisitOriginal}
+								disabled={deleting}
+								className='text-gray-700 focus:text-black hover:bg-gray-100 focus:bg-gray-100 cursor-pointer font-grotesk disabled:opacity-50 disabled:cursor-not-allowed'>
+								<ExternalLink className='w-4 h-4 mr-2' />
+								Visit Original
+							</DropdownMenuItem>
+
+							<>
+								<DropdownMenuSeparator className='bg-gray-200' />
+								<DropdownMenuItem
+									onClick={handleDelete}
+									disabled={deleting || downloading}
+									className='text-red-600 hover:bg-red-50 hover:text-red-700 focus:bg-red-50 focus:text-red-700 cursor-pointer font-grotesk disabled:opacity-50 disabled:cursor-not-allowed'>
+									<Trash2 className='w-4 h-4 mr-2' />
+									{deleting ? "Deleting..." : "Delete"}
+								</DropdownMenuItem>
+							</>
+						</DropdownMenuContent>
+					</DropdownMenu>
+				</div>
 			</div>
 		</article>
 	);
-};
+});
 
 export default ArticleCard;

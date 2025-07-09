@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { FileText, Check, Info, MoveRight, X, Globe, Zap } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -10,6 +10,8 @@ import {
 import FeatureItem from "@/components/common/FeatureItem";
 import Header from "@/components/home/Header";
 import { useCustomer } from "autumn-js/react";
+import { cn } from "@/lib/utils";
+import { useLanguageCycler } from "@/hooks/useLanguageCycler";
 
 interface Feature {
 	title: string;
@@ -34,6 +36,7 @@ interface PricingCardProps {
 	buttonStyle?: string;
 	index: number;
 	quota: string;
+	className?: string;
 }
 
 const allFeatures: Feature[] = [
@@ -69,66 +72,34 @@ const allFeatures: Feature[] = [
 		proIncluded: true,
 		enterpriseIncluded: true,
 	},
-	{
-		title: "Priority Processing",
-		subtitle:
-			"Get your translations processed faster with dedicated resources.",
-		freeIncluded: false,
-		proIncluded: true,
-		enterpriseIncluded: true,
-	},
-	{
-		title: "Custom Terminology",
-		subtitle:
-			"Upload glossaries and maintain consistent translations for your industry.",
-		freeIncluded: false,
-		proIncluded: false,
-		enterpriseIncluded: true,
-	},
-	{
-		title: "API Access",
-		subtitle:
-			"Integrate Articulate directly into your workflow with our powerful API.",
-		freeIncluded: false,
-		proIncluded: false,
-		enterpriseIncluded: true,
-	},
-	{
-		title: "Team Collaboration",
-		subtitle:
-			"Share translations with your team and manage multiple user accounts.",
-		freeIncluded: false,
-		proIncluded: false,
-		enterpriseIncluded: true,
-	},
 ];
 
 const FreePlanIcon: React.FC = () => (
-	<div className='rounded-lg bg-gray-100 flex items-center justify-center p-2'>
+	<div className='rounded-lg bg-zinc-800 border border-zinc-700 flex items-center justify-center p-2'>
 		<FileText
 			strokeWidth='1.5'
 			size={32}
-			className='text-gray-600'
+			className='text-zinc-300'
 		/>
 	</div>
 );
 
 const ProPlanIcon: React.FC = () => (
-	<div className='rounded-lg bg-blue-100 flex items-center justify-center p-2'>
+	<div className='rounded-lg bg-app-primary/20 border border-app-primary/30 flex items-center justify-center p-2'>
 		<Globe
 			strokeWidth='1.5'
 			size={32}
-			className='text-blue-600'
+			className='text-app-primary'
 		/>
 	</div>
 );
 
 const EnterprisePlanIcon: React.FC = () => (
-	<div className='rounded-lg bg-purple-100 flex items-center justify-center p-2'>
+	<div className='rounded-lg bg-purple-500/20 border border-purple-400/30 flex items-center justify-center p-2'>
 		<Zap
 			strokeWidth='1.5'
 			size={32}
-			className='text-purple-600'
+			className='text-purple-400'
 		/>
 	</div>
 );
@@ -143,9 +114,9 @@ const PricingCard: React.FC<PricingCardProps> = ({
 	isPopular = false,
 	originalPrice = null,
 	buttonText = "Get Started",
-	buttonStyle = "border bg-gray-100",
 	index,
 	quota,
+	className,
 }) => {
 	const { attach } = useCustomer();
 	const getFeatureIncluded = (feature: Feature): boolean => {
@@ -164,20 +135,25 @@ const PricingCard: React.FC<PricingCardProps> = ({
 	return (
 		<TooltipProvider>
 			<motion.article
-				className={`relative border rounded-lg p-6 shadow-sm transition-all hover:shadow-md bg-white ${
-					isPopular ? "border-blue-500 bg-blue-50/30" : "border-gray-200"
-				}`}
+				className={cn(
+					`relative border rounded-2xl p-6 shadow-lg transition-all hover:shadow-xl bg-zinc-900  ${
+						isPopular
+							? "border-blue-500 ring-2 ring-blue-500"
+							: "border-zinc-700 hover:border-zinc-600"
+					} `,
+					className
+				)}
 				initial={{ opacity: 0, y: 30 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.25, delay: index * 0.1 }}
-				whileHover={{ y: -5 }}>
+				whileHover={{ y: -5, scale: 1.02 }}>
 				{isPopular && (
 					<motion.div
 						className='absolute -top-3 left-1/2 transform -translate-x-1/2'
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ duration: 0.5 }}>
-						<span className='bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-medium'>
+						<span className='bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-medium shadow-lg font-grotesk'>
 							Most Popular
 						</span>
 					</motion.div>
@@ -187,31 +163,33 @@ const PricingCard: React.FC<PricingCardProps> = ({
 					<Icon />
 					<div className='flex items-center gap-2'>
 						{originalPrice && (
-							<p className='font-grotesk font-medium text-lg text-gray-400 line-through'>
+							<p className='font-grotesk font-medium text-lg text-zinc-500 line-through'>
 								${originalPrice}
 							</p>
 						)}
-						<p className='font-grotesk font-semibold text-2xl'>
-							{price === "Free" ? "Free" : `$${price}`}
+						<p className='font-grotesk font-semibold text-2xl text-white'>
+							{price === "Free" ? "Free" : `${price}`}
 						</p>
 					</div>
 				</div>
 
 				<div className='my-6'>
 					<div className='flex gap-2 items-center justify-between'>
-						<h2 className='text-2xl font-grotesk font-semibold'>
+						<h2 className='text-2xl font-grotesk font-semibold text-white'>
 							{title}
 						</h2>
-						<p className='text-gray-500 rounded-md text-sm py-1'>
+						<p className='text-zinc-400 rounded-md text-sm py-1 bg-zinc-800 px-2 border border-zinc-700'>
 							{period}
 						</p>
 					</div>
 
-					<p className='mt-2 text-sm text-blue-600 font-medium'>{quota}</p>
-					<p className='mt-4 text-gray-600 text-md'>{description}</p>
+					<p className='mt-2 text-sm text-app-primary font-medium bg-app-primary/10 px-2 py-1 rounded-md inline-block border border-app-primary/30'>
+						{quota}
+					</p>
+					<p className='mt-4 text-zinc-300 text-md'>{description}</p>
 				</div>
 
-				<hr className='border-dashed border-gray-400' />
+				<hr className='border-dashed border-zinc-700' />
 
 				<motion.button
 					onClick={async () => {
@@ -219,8 +197,10 @@ const PricingCard: React.FC<PricingCardProps> = ({
 					}}
 					className={`flex items-center justify-center gap-3 w-full my-6 py-3 rounded-xl font-grotesk font-semibold transition-all ${
 						isPopular
-							? "bg-blue-500 text-white hover:bg-blue-600"
-							: buttonStyle + " hover:bg-gray-200"
+							? "bg-blue-500 text-white hover:bg-blue-700 shadow-lg"
+							: plan === "enterprise"
+								? "bg-purple-500 text-white hover:bg-purple-600 shadow-lg"
+								: "bg-zinc-100 text-zinc-700 border border-zinc-200 hover:bg-white"
 					}`}
 					whileHover={{ scale: 1.05 }}
 					whileTap={{ scale: 0.95 }}
@@ -229,7 +209,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
 				</motion.button>
 
 				<div>
-					<h2 className='font-grotesk text-gray-700 font-medium mb-4'>
+					<h2 className='font-grotesk text-white font-medium mb-4'>
 						Features Included:
 					</h2>
 					<div className='space-y-1'>
@@ -239,8 +219,8 @@ const PricingCard: React.FC<PricingCardProps> = ({
 								allFeatures.length == featureIndex + 1;
 							return (
 								<motion.div
-									className={`flex items-center justify-between gap-2 py-3 ${
-										!isLastFeature && "border-b-gray-100 border-b"
+									className={`flex items-center justify-between gap-2 py-3 px-2 rounded-lg transition-colors hover:bg-zinc-800/50 ${
+										!isLastFeature && "border-b-zinc-800 border-b"
 									}`}
 									key={featureIndex}
 									initial={{ opacity: 0 }}
@@ -250,17 +230,19 @@ const PricingCard: React.FC<PricingCardProps> = ({
 									}}>
 									<div
 										className={`w-5 h-5 rounded-md flex items-center justify-center p-1 ${
-											isIncluded ? "bg-blue-400" : "bg-gray-200"
+											isIncluded
+												? "bg-app-primary"
+												: "bg-zinc-700 border border-zinc-600"
 										}`}>
 										{isIncluded ? (
 											<Check
-												className='text-white'
+												className='text-zinc-800'
 												strokeWidth='3'
 												size={12}
 											/>
 										) : (
 											<X
-												className='text-gray-500'
+												className='text-zinc-400'
 												strokeWidth='3'
 												size={12}
 											/>
@@ -268,20 +250,22 @@ const PricingCard: React.FC<PricingCardProps> = ({
 									</div>
 									<p
 										className={`mr-auto font-grotesk ${
-											isIncluded ? "text-gray-700" : "text-gray-400"
+											isIncluded ? "text-white" : "text-zinc-500"
 										}`}>
 										{feature.title}
 									</p>
 
 									<Tooltip>
 										<TooltipTrigger asChild>
-											<Info
-												size={18}
-												className='text-gray-500 cursor-help hover:text-gray-700 transition-colors'
-											/>
+											<div className='p-1 rounded-full hover:bg-zinc-800 transition-colors cursor-help'>
+												<Info
+													size={18}
+													className='text-zinc-500 hover:text-zinc-300 transition-colors'
+												/>
+											</div>
 										</TooltipTrigger>
-										<TooltipContent className='bg-white shadow-lg border rounded-md py-1.5 px-4'>
-											<p className='max-w-xs text-gray-600 text-sm'>
+										<TooltipContent className='bg-zinc-800 text-white shadow-lg border border-zinc-700 rounded-md py-1.5 px-4'>
+											<p className='max-w-xs text-zinc-200 text-sm'>
 												{feature.subtitle}
 											</p>
 										</TooltipContent>
@@ -297,53 +281,53 @@ const PricingCard: React.FC<PricingCardProps> = ({
 };
 
 const Pricing: React.FC = () => {
+	const { currentLanguage } = useLanguageCycler();
 	return (
-		<div className=''>
-			<AnimatePresence>
-				<motion.img
-					src='/images/hero-img.svg'
-					className='absolute inset-0 h-full w-full object-cover grayscale-[.2] brightness-[.6]  '
-					initial={{
-						opacity: 0,
-						scale: 1,
-					}}
-					animate={{
-						opacity: 1,
-						scale: 1.1,
-					}}
-					exit={{
-						opacity: 0,
-						scale: 1.15,
-					}}
-					transition={{
-						opacity: { duration: 0.5, ease: "easeInOut" },
-						scale: { duration: 10, ease: "easeOut" },
-					}}
-				/>
-			</AnimatePresence>
-			<div className='w-full  relative   overflow-hidden h-screen  '>
-				<Header />
+		<div className='relative min-h-screen overflow-hidden'>
+			{/* Full coverage background image */}
+			<div className='absolute inset-0 min-h-full'>
+				<AnimatePresence>
+					<motion.img
+						src='/images/hero-img.svg'
+						className='absolute inset-0 w-full h-full min-h-screen object-cover brightness-[.3] '
+						style={{ minHeight: "100vh" }}
+						initial={{
+							opacity: 0,
+							scale: 1,
+						}}
+						animate={{
+							opacity: 1,
+							scale: 1.1,
+						}}
+						exit={{
+							opacity: 0,
+							scale: 1.15,
+						}}
+						transition={{
+							opacity: { duration: 0.5, ease: "easeInOut" },
+							scale: { duration: 10, ease: "easeOut" },
+						}}
+					/>
+				</AnimatePresence>
+			</div>
 
+			{/* Header and feature items */}
+			<div className='relative z-20'>
+				<Header />
+			</div>
+
+			{/* Main content */}
+			<section className='relative z-10 max-w-7xl mx-auto flex flex-col items-center px-4 py-[15vh] min-h-screen'>
 				<FeatureItem
-					code='world'
+					code={currentLanguage.code}
 					title='Global Access'
 					description='Unlock worldwide content'
 					iconColor='text-blue-600'
 					iconBgColor='bg-blue-50'
-					className='absolute right-2 top-10 md:top-[20%] h-fit md:right-[4%] z-10 bg-gray-100  border'
+					className='absolute right-2 top-48 md:top-[20%] h-fit md:right-[4%] z-10 bg-zinc-800 border border-zinc-700 shadow-lg rounded-lg '
 				/>
 
-				<FeatureItem
-					code='no'
-					title='PDF Export'
-					description='Beautiful formatted documents'
-					iconColor='text-orange-600'
-					iconBgColor='bg-orange-50'
-					className='absolute md:bottom-20 h-fit md:left-[1%] z-10 bg-white shadow-md bottom-[4px] border'
-				/>
-			</div>
-			<section className='max-w-7xl mx-auto flex flex-col items-center  px-4 py-[15vh] absolute inset-0 '>
-				<h1 className='font-grotesk text-white text-[1.8rem] md:text-[3rem] font-semibold mt-3 text-center z-50'>
+				<h1 className='font-grotesk text-white text-[1.8rem] md:text-[3rem] font-semibold mt-3 text-center drop-shadow-lg'>
 					Pricing
 				</h1>
 
@@ -362,7 +346,7 @@ const Pricing: React.FC = () => {
 
 					<PricingCard
 						plan='pro'
-						price='19'
+						price='$19'
 						period='Per Month'
 						title='Professional'
 						quota='Unlimited articles'
@@ -375,7 +359,7 @@ const Pricing: React.FC = () => {
 
 					<PricingCard
 						plan='enterprise'
-						price='99'
+						price='$99'
 						period='Per Month'
 						title='Enterprise'
 						quota='Unlimited + API access'
@@ -392,7 +376,7 @@ const Pricing: React.FC = () => {
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					transition={{ duration: 0.8, delay: 1.2 }}>
-					<p className='text-gray-500 text-sm'>
+					<p className='text-white/80 text-sm drop-shadow-sm font-grotesk'>
 						All plans include access to 20+ languages and PDF generation.
 						Cancel anytime.
 					</p>
