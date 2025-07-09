@@ -22,8 +22,8 @@ type HeaderProps = {
 };
 
 function Header(props: HeaderProps) {
-	const [isAuthenticated, setIsAuthenticated] = useState(false);
-	const [isLoading, setIsLoading] = useState(false);
+	const [, setIsAuthenticated] = useState(false);
+	const [, setIsLoading] = useState(false);
 	const { profile, setProfile, clearProfile } = useProfileStore();
 	const [userPlan, setUserPlan] = useState<"free" | "pro" | "enterprise">(
 		"enterprise"
