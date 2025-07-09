@@ -10,6 +10,7 @@ import LoadingSpinner from "@/components/common/LoadingSpinner"; // Adjust path 
 import FeatureItem from "../common/FeatureItem";
 import lingoSupportedLanguages from "@/utils/languages.util";
 import showToast from "@/utils/toast.utils";
+import { useLanguageCycler } from "@/hooks/useLanguageCycler";
 export function URLTransformForm() {
 	const [url, setUrl] = useState("");
 	const [selectedLanguage, setSelectedLanguage] = useState(languages[0]);
@@ -281,9 +282,18 @@ export function URLTransformForm() {
 }
 
 function Hero() {
+	const { currentLanguage } = useLanguageCycler();
 	return (
 		<section className='bg-white md:min-h-[45rem] h-screen flex md:items-center  relative overflow-hidden justify-center w-full  '>
 			<div className='max-w-3xl relative z-10 h-fit  ticket-border top-[15vh] md:top-[1.5rem] mx-8 rounded-md'>
+				<FeatureItem
+					code={currentLanguage.code}
+					title='Global Access'
+					description='Unlock worldwide content'
+					iconColor='text-blue-600'
+					iconBgColor='bg-blue-50'
+					className='absolute right-2 -top-10  h-fit md:right-[4%] z-10 bg-gray-100  border md:hidden'
+				/>
 				<div className='bg-white py-9 md:py-14 ticket-shape px-3 rounded-md'>
 					<div className='z-10 relative text-center'>
 						<img
@@ -321,16 +331,16 @@ function Hero() {
 						description='Unlock worldwide content'
 						iconColor='text-blue-600'
 						iconBgColor='bg-blue-50'
-						className='absolute right-2 top-10 md:top-[20%] h-fit md:right-[4%] z-10 bg-gray-100  border'
+						className='absolute right-2 top-10 md:top-[20%] h-fit md:right-[4%] z-10 bg-gray-100  border md:flex hidden'
 					/>
 
 					<FeatureItem
-						code='no'
+						code={currentLanguage.code}
 						title='PDF Export'
 						description='Beautiful formatted documents'
 						iconColor='text-orange-600'
 						iconBgColor='bg-orange-50'
-						className='absolute md:bottom-20 h-fit md:left-[15%] z-10 bg-white shadow-md bottom-[4px] border'
+						className='absolute md:bottom-20 h-fit md:left-[15%] z-10 bg-white shadow-md bottom-[4px] border md:flex hidden'
 					/>
 
 					<div className=' h-full w-full overflow-hidden border left-0 '>

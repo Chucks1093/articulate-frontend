@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React from "react";
 import { FileText, Check, Info, MoveRight, X, Globe, Zap } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -11,7 +11,7 @@ import FeatureItem from "@/components/common/FeatureItem";
 import Header from "@/components/home/Header";
 import { useCustomer } from "autumn-js/react";
 import { cn } from "@/lib/utils";
-import lingoSupportedLanguages from "@/utils/languages.util";
+import { useLanguageCycler } from "@/hooks/useLanguageCycler";
 
 interface Feature {
 	title: string;
@@ -114,7 +114,6 @@ const PricingCard: React.FC<PricingCardProps> = ({
 	isPopular = false,
 	originalPrice = null,
 	buttonText = "Get Started",
-	buttonStyle = "border bg-gray-100",
 	index,
 	quota,
 	className,
@@ -282,20 +281,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
 };
 
 const Pricing: React.FC = () => {
-	const [currentLanguageIndex, setCurrentLanguageIndex] = useState(0);
-
-	// Cycle through languages every 1 second
-	useEffect(() => {
-		const interval = setInterval(() => {
-			setCurrentLanguageIndex(
-				(prevIndex) => (prevIndex + 1) % lingoSupportedLanguages.length
-			);
-		}, 400);
-
-		return () => clearInterval(interval);
-	}, []);
-
-	const currentLanguage = lingoSupportedLanguages[currentLanguageIndex];
+	const { currentLanguage } = useLanguageCycler();
 	return (
 		<div className='relative min-h-screen overflow-hidden'>
 			{/* Full coverage background image */}
@@ -307,11 +293,11 @@ const Pricing: React.FC = () => {
 						style={{ minHeight: "100vh" }}
 						initial={{
 							opacity: 0,
-							scale: 1.1,
+							scale: 1,
 						}}
 						animate={{
 							opacity: 1,
-							scale: 1,
+							scale: 1.1,
 						}}
 						exit={{
 							opacity: 0,

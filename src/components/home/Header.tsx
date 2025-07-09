@@ -1,13 +1,19 @@
 import { authService } from "@/services/auth.service";
 import { LayoutPanelTop, LogOut, Menu } from "lucide-react";
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { Link } from "react-router";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useProfileStore } from "@/hooks/useProfileStore";
+import { cn } from "@/lib/utils";
 
-function Header() {
+type HeaderProps = {
+	className?: string;
+	childeren?: ReactNode;
+};
+
+function Header(props: HeaderProps) {
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -109,7 +115,11 @@ function Header() {
 	};
 
 	return (
-		<header className='absolute flex items-center justify-between w-[95%] sm:w-[90%] mx-auto max-w-5xl top-[2vh] md:top-[4vh] left-1/2 -translate-x-1/2 px-3 sm:px-4 md:px-3 z-20 bg-zinc-800 rounded-2xl sm:rounded-3xl lg:rounded-[3rem] shadow-apple-xl py-2.5 sm:py-3'>
+		<header
+			className={cn(
+				"absolute flex items-center justify-between w-[95%] sm:w-[90%] mx-auto max-w-4xl top-[2vh] md:top-[4vh] left-1/2 -translate-x-1/2 px-3 sm:px-4 md:px-3 z-20 bg-zinc-800 rounded-2xl sm:rounded-3xl lg:rounded-[3rem] shadow-apple-xl py-2.5 sm:py-3",
+				props.className
+			)}>
 			{/* Logo */}
 			<Link
 				to='/'
@@ -141,13 +151,11 @@ function Header() {
 				open={mobileMenuOpen}
 				onOpenChange={setMobileMenuOpen}>
 				<SheetTrigger asChild>
-					<Button
-						variant='ghost'
-						size='icon'
+					<button
 						className='md:hidden text-gray-300 hover:text-white hover:bg-zinc-700'
 						aria-label='Toggle mobile menu'>
-						<Menu className='w-5 h-5' />
-					</Button>
+						<Menu className='w-6 h-6' />
+					</button>
 				</SheetTrigger>
 				<SheetContent
 					side='top'

@@ -70,6 +70,25 @@ export interface LanguageStats {
 	count: number;
 }
 
+// Pagination types
+export interface PaginationParams {
+	page: number;
+	limit: number;
+	userId: string;
+}
+
+export interface PaginatedResponse<T> {
+	data: T[];
+	pagination: {
+		page: number;
+		limit: number;
+		total: number;
+		totalPages: number;
+		hasNext: boolean;
+		hasPrev: boolean;
+	};
+}
+
 class ArticleService {
 	private supabase: SupabaseClient;
 	private API_BASE_URL: string;
@@ -140,7 +159,7 @@ class ArticleService {
 
 			// Get filename from Content-Disposition header or use article title
 			const contentDisposition = response.headers.get("Content-Disposition");
-			let filename = contentDisposition
+			const filename = contentDisposition
 				? contentDisposition.split("filename=")[1].replace(/"/g, "")
 				: `${articleTitle || "article"}-${docId}.pdf`;
 
@@ -157,25 +176,6 @@ class ArticleService {
 			console.error("PDF download error:", error);
 			throw error;
 		}
-	}
-
-	/**
-	 * Get all translated articles for a user
-	 */
-	async getArticlesByUserId(userId: string): Promise<Article[]> {
-		const { data, error } = await this.supabase
-			.from("articles")
-			.select("*")
-			.eq("user_id", userId)
-			.order("created_at", { ascending: false });
-
-		if (error) {
-			console.error("Error fetching articles:", error);
-			throw error;
-		}
-
-		// Transform database format to API format
-		return data;
 	}
 
 	async getArticlesByDocId(docId: string): Promise<Article> {
@@ -195,24 +195,47 @@ class ArticleService {
 	}
 
 	/**
-	 * Get all articles from the database
+	 * Get articles with pagination from Supabase
 	 */
-	async getAllArticles(userId: string): Promise<Article[]> {
-		console.log(userId);
-		const { data, error } = await this.supabase
+	async getAllArticles(
+		params: PaginationParams
+	): Promise<PaginatedResponse<Article>> {
+		const { page, limit, userId } = params;
+		const from = (page - 1) * limit;
+		const to = from + limit - 1;
 
+		// Get total count
+		const { count } = await this.supabase
+			.from("articles")
+			.select("*", { count: "exact", head: true })
+			.eq("user_id", userId);
+
+		// Get paginated data
+		const { data, error } = await this.supabase
 			.from("articles")
 			.select("*")
-			.eq("user", userId)
-
-			.order("created_at", { ascending: false });
+			.order("created_at", { ascending: false })
+			.range(from, to);
 
 		if (error) {
-			console.error("Error fetching all articles:", error);
+			console.error("Error fetching articles:", error);
 			throw error;
 		}
 
-		return data;
+		const total = count || 0;
+		const totalPages = Math.ceil(total / limit);
+
+		return {
+			data: data || [],
+			pagination: {
+				page,
+				limit,
+				total,
+				totalPages,
+				hasNext: page < totalPages,
+				hasPrev: page > 1,
+			},
+		};
 	}
 
 	/**
