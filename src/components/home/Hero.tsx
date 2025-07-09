@@ -35,10 +35,7 @@ export function URLTransformForm() {
 		console.log("Target Language:", selectedLanguage);
 
 		try {
-			if (!profile || !profile.id)
-				return showToast.error(
-					"You have to Sign in to Translate your article"
-				);
+			if (!profile || !profile.id) return navigate("/auth");
 
 			await articleService.translateArticle({
 				url,
