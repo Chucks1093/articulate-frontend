@@ -110,7 +110,7 @@ const ArticlePreview = () => {
 							<img
 								src={article.author_avatar || "/images/no-profile.jpg"}
 								alt={article.author}
-								className='w-12 h-12 rounded-full flex-shrink-0'
+								className='w-12 h-12 rounded-full flex-shrink-0 object-cover'
 							/>
 							<div className='min-w-0'>
 								<h2 className='font-grotesk text-lg font-medium text-zinc-700 truncate'>

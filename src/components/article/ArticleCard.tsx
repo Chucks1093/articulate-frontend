@@ -6,6 +6,7 @@ import {
 	ExternalLink,
 	MoreVertical,
 	Trash2,
+	Copy,
 } from "lucide-react";
 import { TranslatedArticle, Language } from "@/types/article.types";
 import { formatDate } from "@/utils/helpers.utils";
@@ -34,6 +35,18 @@ const ArticleCard = memo(function ArticleCard({
 }: ArticleCardProps) {
 	const [downloading, setDownloading] = useState(false);
 	const [deleting, setDeleting] = useState(false);
+
+	const handleCopy = async () => {
+		try {
+			await navigator.clipboard.writeText(
+				`${window.location.origin}/articles/${article.doc_id}`
+			);
+			// Optionally, show a toast or feedback here
+			console.log("Link copied to clipboard!");
+		} catch (err) {
+			console.error("Failed to copy link:", err);
+		}
+	};
 
 	const handleDownload = async () => {
 		try {
@@ -160,6 +173,13 @@ const ArticleCard = memo(function ArticleCard({
 								{downloading ? "Downloading..." : "Download"}
 							</DropdownMenuItem>
 
+							<DropdownMenuItem
+								onClick={handleCopy}
+								disabled={deleting}
+								className='text-gray-700 focus:text-black hover:bg-gray-100 focus:bg-gray-100 cursor-pointer font-grotesk disabled:opacity-50 disabled:cursor-not-allowed'>
+								<Copy className='w-4 h-4 mr-2' />
+								Copy Link
+							</DropdownMenuItem>
 							<DropdownMenuItem
 								onClick={handleVisitOriginal}
 								disabled={deleting}
