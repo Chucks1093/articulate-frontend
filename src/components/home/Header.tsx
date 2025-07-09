@@ -24,6 +24,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useProfileStore } from "@/hooks/useProfileStore";
 import { cn } from "@/lib/utils";
+import { LocaleSwitcher } from "lingo.dev/react-client";
 
 type HeaderProps = {
 	className?: string;
@@ -332,6 +333,13 @@ function Header(props: HeaderProps) {
 				<p className='text-app-primary font-grotesk font-medium text-lg sm:text-xl md:text-2xl lg:text-3xl'>
 					Articulate
 				</p>
+				{profile && <div className='w-px h-4 sm:h-5 bg-zinc-600' />}
+				<div className='text-xs sm:text-sm'>
+					<LocaleSwitcher
+						locales={["en", "es", "fr", "de"]}
+						className='bg-zinc-700 border border-zinc-600 rounded-full px-2 py-0.5 text-zinc-300 hover:bg-zinc-600 transition-all duration-200 font-grotesk text-xs sm:text-sm [&_svg]:mr-6 [&_svg]:text-red-900'
+					/>
+				</div>
 			</Link>
 
 			{/* Desktop Navigation */}

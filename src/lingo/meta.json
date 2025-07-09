@@ -1,0 +1,788 @@
+{
+  "version": 0.1,
+  "files": {
+    "components/article/ArticleCard.tsx": {
+      "scopes": {
+        "9/0/init/0/body/6/argument/11/1/1": {
+          "type": "element",
+          "hash": "5375aa9a678c74c50112167ed702b884",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "<element:Eye></element:Eye> View"
+        },
+        "9/0/init/0/body/6/argument/11/3/1": {
+          "type": "element",
+          "hash": "701521ad108cb43a317423e1ce97f66f",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "PDF"
+        },
+        "9/0/init/0/body/6/argument/11/3/5/1/1-aria-label": {
+          "type": "attribute",
+          "hash": "443bd91d1d6563e0344b8323f75928bd",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "More actions"
+        },
+        "9/0/init/0/body/6/argument/11/3/5/3/3": {
+          "type": "element",
+          "hash": "d087a8f3c88ed95586a0754588569c66",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "<element:ExternalLink></element:ExternalLink> Visit Original"
+        },
+        "9/0/init/0/body/6/argument/7/3/expression/right": {
+          "type": "element",
+          "hash": "9b90407bbc9d596e1cd2796c5a206da5",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "by {article.author}"
+        }
+      }
+    },
+    "components/article/Footer.tsx": {
+      "scopes": {
+        "4/body/4/argument/1/3/3/1/1/1-alt": {
+          "type": "attribute",
+          "hash": "f9fd2de9ea8b044ffcfa1030fbc353c1",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Articulate Logo"
+        },
+        "4/body/4/argument/1/3/3/1/3": {
+          "type": "element",
+          "hash": "16317c5c1a69e9afbcbe170a2413e656",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Articulate"
+        },
+        "4/body/4/argument/1/3/3/5/1/1/1-alt": {},
+        "4/body/4/argument/1/3/3/5/5/expression/right/1/expression/0/body/1/1-alt": {},
+        "4/body/4/argument/1/7/1/1/1": {
+          "type": "element",
+          "hash": "dcba057dfb22a2f2e42196d5a643dc1c",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Home"
+        },
+        "4/body/4/argument/1/7/1/1/3": {
+          "type": "element",
+          "hash": "3c59f93ccd136642af3a444008b66f81",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Articles"
+        },
+        "4/body/4/argument/1/7/1/1/5": {
+          "type": "element",
+          "hash": "fdbf08440debe2b1cb9cddba3157816c",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Sign In"
+        },
+        "4/body/4/argument/1/7/1/3": {
+          "type": "element",
+          "hash": "bacf2b5d763d07992da0e2b777b81b43",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "© <function:Date.getFullYear/> Articulate. All rights reserved."
+        }
+      }
+    },
+    "components/article/Header.tsx": {
+      "scopes": {
+        "12/body/3/0/init/body/1/argument/3/11/3": {
+          "type": "element",
+          "hash": "06efb815f8e1f5d09e63d262ba48b4e7",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Sign Out"
+        },
+        "12/body/3/0/init/body/1/argument/3/3/3/5": {
+          "type": "element",
+          "hash": "e990006af9325cab08e61fed93dc1c64",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "<element:Crown></element:Crown> Pro Plan"
+        },
+        "12/body/3/0/init/body/1/argument/3/5/3": {
+          "type": "element",
+          "hash": "ea4c2a7a9a60cbb0f8f9632222a46abe",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Follow us on Twitter"
+        },
+        "12/body/3/0/init/body/1/argument/3/7/1/3": {
+          "type": "element",
+          "hash": "c5ef2d2c55c6a65b2b31321e3b9d5b5f",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Email Us"
+        },
+        "12/body/4/argument/3/1/1-alt": {
+          "type": "attribute",
+          "hash": "f9fd2de9ea8b044ffcfa1030fbc353c1",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Articulate Logo"
+        }
+      }
+    },
+    "components/article/SearchAndFilter.tsx": {
+      "scopes": {
+        "8/0/init/body/2/0/init/body/2/argument/0/value/1-alt": {},
+        "8/0/init/body/4/argument/3/3-placeholder": {
+          "type": "attribute",
+          "hash": "a236ca5ea6d894e4daf0aac96ebb6c8f",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Search articles..."
+        },
+        "8/0/init/body/4/argument/3/5/expression/right": {
+          "type": "element",
+          "hash": "6ae2162346a652c0db4e1b08827ceb30",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Clear"
+        },
+        "8/0/init/body/4/argument/7/3/1/1-placeholder": {
+          "type": "attribute",
+          "hash": "edce4bebb4ee4fa7563c8ffd774bb260",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Search languages..."
+        },
+        "8/0/init/body/4/argument/7/3/1/3/1": {
+          "type": "element",
+          "hash": "1cee2bc4460466c79d419a369ad29a5b",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "No languages found"
+        },
+        "8/0/init/body/4/argument/7/3/1/3/3/3/3": {
+          "type": "element",
+          "hash": "9d3241bfa98088fb167446777c714ac4",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "All Languages"
+        },
+        "8/0/init/body/4/argument/7/3/1/3/3/7/expression/0/body/1/1-alt": {}
+      }
+    },
+    "components/home/Header.tsx": {
+      "scopes": {
+        "13/body/10/0/init/body/1/consequent/0/consequent/0/argument/1/1/1/7/expression/right/1": {
+          "type": "element",
+          "hash": "9e44f00a9ad68d736dd130f91e0b3ec7",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "F"
+        },
+        "13/body/10/0/init/body/1/consequent/0/consequent/0/argument/3/13/3": {
+          "type": "element",
+          "hash": "06efb815f8e1f5d09e63d262ba48b4e7",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Sign Out"
+        },
+        "13/body/10/0/init/body/1/consequent/0/consequent/0/argument/3/3/3/5/expression/right": {
+          "type": "element",
+          "hash": "66d0af115156a953a11a62849730ad4d",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "<expression/><expression/>  Plan"
+        },
+        "13/body/10/0/init/body/1/consequent/0/consequent/0/argument/3/5/3": {
+          "type": "element",
+          "hash": "d83ee27c9a0851d33f7b4640d86fc8e2",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Follow us on Twitter"
+        },
+        "13/body/10/0/init/body/1/consequent/0/consequent/0/argument/3/7/1/3": {
+          "type": "element",
+          "hash": "68f4b4a1c640a972c5562b4d5139da06",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "View Articles"
+        },
+        "13/body/10/0/init/body/1/consequent/0/consequent/0/argument/3/9/3": {
+          "type": "element",
+          "hash": "c5ef2d2c55c6a65b2b31321e3b9d5b5f",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Email Us"
+        },
+        "13/body/10/0/init/body/2/argument/1": {
+          "type": "element",
+          "hash": "48ddf2c66c960076cb0b185c95ec025a",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Sign In<element:LogOut></element:LogOut>"
+        },
+        "13/body/11/0/init/body/1/argument/1/7/expression/right/1": {
+          "type": "element",
+          "hash": "85ef5290cd394ecf9780f43f72270d19",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "F"
+        },
+        "13/body/11/0/init/body/1/argument/3/5/expression/right": {
+          "type": "element",
+          "hash": "39ab6dc85dd627e5d19c8db7a068aa95",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "<expression/><expression/> Plan"
+        },
+        "13/body/12/argument/15/1/1-aria-label": {
+          "type": "attribute",
+          "hash": "cffc8557180f989ff0f277aceda35369",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Toggle mobile menu"
+        },
+        "13/body/12/argument/15/3/1/11/1/expression/consequent/1/1": {
+          "type": "element",
+          "hash": "cb29a1b93bba2a156008abf8be8d5765",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "<element:LayoutPanelTop></element:LayoutPanelTop> View Articles"
+        },
+        "13/body/12/argument/15/3/1/11/1/expression/consequent/3": {
+          "type": "element",
+          "hash": "759365c3288309c791e664686cd45962",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "<element:LogOut></element:LogOut> Sign Out"
+        },
+        "13/body/12/argument/3/1/1-alt": {
+          "type": "attribute",
+          "hash": "f9fd2de9ea8b044ffcfa1030fbc353c1",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Articulate Logo"
+        },
+        "13/body/12/argument/3/3": {
+          "type": "element",
+          "hash": "b9fab29656a5946a45113c5eab87ae3b",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Articulate"
+        },
+        "13/body/9/0/init/body/1": {
+          "type": "element",
+          "hash": "a4dd7a71ea39855bb1a757551a57e2da",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Pricing"
+        },
+        "13/body/9/0/init/body/3": {
+          "type": "element",
+          "hash": "3355a35b2c99cd0e03a694e9dc07553c",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Twitter"
+        },
+        "13/body/9/0/init/body/5": {
+          "type": "element",
+          "hash": "4e23295fa14d02844fb1307f37385ac8",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Email"
+        }
+      }
+    },
+    "components/home/Hero.tsx": {
+      "scopes": {
+        "13/declaration/body/18/argument/1/11/1/expression/alternate/1": {
+          "type": "element",
+          "hash": "ca6d00c6cf890318c0518e2243bc04a4",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Translate to {selectedLanguage.name}"
+        },
+        "13/declaration/body/18/argument/1/11/1/expression/consequent/3": {
+          "type": "element",
+          "hash": "602b092655724238f713953e906c9032",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Translating..."
+        },
+        "13/declaration/body/18/argument/1/3/7-placeholder": {
+          "type": "attribute",
+          "hash": "7090178baff55f17c570ce19fa6dd714",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Paste article URL here"
+        },
+        "13/declaration/body/18/argument/1/7/expression/right": {
+          "type": "element",
+          "hash": "5644fc265c86ddf3d2eb5807e2ec576c",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Please enter a valid URL"
+        },
+        "13/declaration/body/18/argument/5/expression/right/0/3/1/3-placeholder": {
+          "type": "attribute",
+          "hash": "edce4bebb4ee4fa7563c8ffd774bb260",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Search languages..."
+        },
+        "13/declaration/body/18/argument/5/expression/right/0/7/1/expression/alternate": {
+          "type": "element",
+          "hash": "50f135ff822432c9f5bc3e87c99b23b6",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "No languages found"
+        },
+        "14/body/1/argument/1/1-description": {
+          "type": "attribute",
+          "hash": "0b7d41b4fd8af378b3d510507605afb7",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Unlock worldwide content"
+        },
+        "14/body/1/argument/1/1-title": {
+          "type": "attribute",
+          "hash": "7f25299d779c57058dc4a1b3a2ac65e1",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Global Access"
+        },
+        "14/body/1/argument/1/3/1/1-alt": {},
+        "14/body/1/argument/1/3/1/3": {
+          "type": "element",
+          "hash": "62282349f29e8d2e97cbfe814909ace0",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Break language barriers and <element:p></element:p> unlock global knowledge"
+        },
+        "14/body/1/argument/1/3/1/5": {
+          "type": "element",
+          "hash": "541ad505270ed85d20231dc75b223f28",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Our AI-powered platform instantly converts any online article into beautifully formatted PDFs in 150+ languages. Access knowledge without barriers, improve language skills, and explore content from around the world with just one click."
+        },
+        "14/body/1/argument/1/3/5": {
+          "type": "element",
+          "hash": "3f7211dd71228f710d86e44bd64f36e9",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "We support {lingoSupportedLanguages.length}+ languages, including Spanish, French, German, and many more."
+        },
+        "14/body/1/argument/5/1/3-description": {
+          "type": "attribute",
+          "hash": "0b7d41b4fd8af378b3d510507605afb7",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Unlock worldwide content"
+        },
+        "14/body/1/argument/5/1/3-title": {
+          "type": "attribute",
+          "hash": "7f25299d779c57058dc4a1b3a2ac65e1",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Global Access"
+        },
+        "14/body/1/argument/5/1/5-description": {
+          "type": "attribute",
+          "hash": "12d526dc8a48ffdd2b608e0b0042900e",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Beautiful formatted documents"
+        },
+        "14/body/1/argument/5/1/5-title": {
+          "type": "attribute",
+          "hash": "7b69da3847372ae47e54db3bbf2d98ea",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "PDF Export"
+        }
+      }
+    },
+    "components/ui/dialog.tsx": {
+      "scopes": {
+        "10/0/init/0/body/3/3/3": {
+          "type": "element",
+          "hash": "2c2e22f8424a1031de89063bd0022e16",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Close"
+        }
+      }
+    },
+    "components/ui/sheet.tsx": {
+      "scopes": {
+        "13/0/init/0/body/3/3/3": {
+          "type": "element",
+          "hash": "2c2e22f8424a1031de89063bd0022e16",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Close"
+        }
+      }
+    },
+    "pages/ArticlePreview.tsx": {
+      "scopes": {
+        "5/body/1/argument/1/1/3": {
+          "type": "element",
+          "hash": "c2251bb74340fb80dc7a98675ab713c7",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Unable to Load Article"
+        },
+        "5/body/1/argument/1/1/7": {
+          "type": "element",
+          "hash": "72d59ec04438317600dfece12ea7de7d",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Please check the URL and try again."
+        },
+        "5/body/1/argument/1/3/1": {
+          "type": "element",
+          "hash": "6213960d2f3002e9083068384f062783",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Try Again"
+        },
+        "5/body/1/argument/1/3/3/expression/alternate": {
+          "type": "element",
+          "hash": "d1e33ad27ffb074f845de92ad3132e57",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Go Home"
+        },
+        "5/body/1/argument/1/3/3/expression/consequent": {
+          "type": "element",
+          "hash": "00201d2d82edb1644a6c32d505634984",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Back to Articles"
+        },
+        "6/0/init/body/5/argument/3/3/expression/right/1-alt": {
+          "type": "attribute",
+          "hash": "4f28407ded4e84c1686006b76a21c1bd",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Article cover"
+        },
+        "6/0/init/body/5/argument/3/5/19/1": {
+          "type": "element",
+          "hash": "0547a3818c2488d98bac9a1fb313da61",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Original article:"
+        },
+        "6/0/init/body/5/argument/3/5/23/expression/right/1/1": {
+          "type": "element",
+          "hash": "e8527387b9301371cf2f4429a46e625b",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Want to translate your own articles?"
+        },
+        "6/0/init/body/5/argument/3/5/23/expression/right/1/3": {
+          "type": "element",
+          "hash": "2d981065255ff8a6b162c575692df858",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Sign in to access our AI-powered translation service and save your favorite articles."
+        },
+        "6/0/init/body/5/argument/3/5/23/expression/right/1/5": {
+          "type": "element",
+          "hash": "abdf1d80ad9f6c97cb06a4677bc4fedb",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Get Started for Free"
+        },
+        "6/0/init/body/5/argument/3/5/3/3/3/1": {
+          "type": "element",
+          "hash": "190a535ad77e9a9aca40f9233521db49",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Original: <function:article.original_lang.toUpperCase/>"
+        }
+      }
+    },
+    "pages/AuthDialog.tsx": {
+      "scopes": {
+        "7/0/init/body/1-alt": {},
+        "7/0/init/body/3-alt": {},
+        "8/0/init/body/3/argument/1/1/7/11": {
+          "type": "element",
+          "hash": "d249282c53f3cdac5b44188eca6a5c7f",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "<element:GoogleIcon></element:GoogleIcon> Continue with Google"
+        },
+        "8/0/init/body/3/argument/1/1/7/7/1": {
+          "type": "element",
+          "hash": "ef1336d723bcd3072fb16363394503bc",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Welcome to Articulate"
+        },
+        "8/0/init/body/3/argument/1/1/7/7/3": {
+          "type": "element",
+          "hash": "f86539736e9a8d0c38933d1db3c364b9",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "By continuing, you agree to our Terms of Service and Privacy Policy. Transform any article into beautifully formatted PDFs"
+        }
+      }
+    },
+    "pages/Pricing.tsx": {
+      "scopes": {
+        "16/0/init/body/2/argument/1/1/expression/right/1": {
+          "type": "element",
+          "hash": "fc009d3105c8de7510673a4f47046b35",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Most Popular"
+        },
+        "16/0/init/body/2/argument/1/11/1": {
+          "type": "element",
+          "hash": "4706f97ef657ae7bc885396a358e5d91",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Features Included:"
+        },
+        "16/0/init/body/2/argument/1/3/3/1/expression/right": {
+          "type": "element",
+          "hash": "cc3959e7af0956d591d5baf7fae37ea7",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "${originalPrice}"
+        },
+        "17/0/init/body/1/argument/11/1-description": {
+          "type": "attribute",
+          "hash": "0b7d41b4fd8af378b3d510507605afb7",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Unlock worldwide content"
+        },
+        "17/0/init/body/1/argument/11/1-title": {
+          "type": "attribute",
+          "hash": "7f25299d779c57058dc4a1b3a2ac65e1",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Global Access"
+        },
+        "17/0/init/body/1/argument/11/3": {
+          "type": "element",
+          "hash": "2d8f4776d81e9220088f1162fc771cb0",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Pricing"
+        },
+        "17/0/init/body/1/argument/11/5/1-description": {
+          "type": "attribute",
+          "hash": "8f3a76b9b8452c005479e6c6d3eeaca6",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Perfect for trying out Articulate and translating occasional articles."
+        },
+        "17/0/init/body/1/argument/11/5/1-title": {
+          "type": "attribute",
+          "hash": "d57ceb9ca36fb941537a29beddee5026",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Starter"
+        },
+        "17/0/init/body/1/argument/11/5/3-description": {
+          "type": "attribute",
+          "hash": "d206dbc47284ad5ecf74006394b26395",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Complete translation solution for researchers, students, and professionals."
+        },
+        "17/0/init/body/1/argument/11/5/3-title": {
+          "type": "attribute",
+          "hash": "0059ac0aac3f10a46b28c095e697cbbb",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Professional"
+        },
+        "17/0/init/body/1/argument/11/5/5-description": {
+          "type": "attribute",
+          "hash": "97b200b6306330b1a579858e40b7de90",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Advanced features for teams and organizations that need translation at scale."
+        },
+        "17/0/init/body/1/argument/11/5/5-title": {
+          "type": "attribute",
+          "hash": "c70474271708e5b27392fde87462fa26",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Enterprise"
+        },
+        "17/0/init/body/1/argument/11/7/1": {
+          "type": "element",
+          "hash": "400f91d6a02402a5ca2c87e827799004",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "All plans include access to 20+ languages and PDF generation. Cancel anytime."
+        }
+      }
+    },
+    "pages/TranslatedArticles.tsx": {
+      "scopes": {
+        "10/0/init/body/19/argument/3/7/expression/alternate/alternate/alternate/3": {
+          "type": "element",
+          "hash": "e9929eff113f91ac077ffcf7ee89fa17",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "No translated articles yet"
+        },
+        "10/0/init/body/19/argument/3/7/expression/alternate/alternate/alternate/5": {
+          "type": "element",
+          "hash": "0cc33a66fc6f9bca1a0301fd815afed9",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Start translating articles using our AI-powered translation tool. Your translated articles will appear here."
+        },
+        "10/0/init/body/19/argument/3/7/expression/alternate/alternate/consequent/3": {
+          "type": "element",
+          "hash": "03823693644369a503d889b9bafbd848",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "No articles found"
+        },
+        "10/0/init/body/19/argument/3/7/expression/alternate/alternate/consequent/5": {
+          "type": "element",
+          "hash": "12508adc5f806c38b1d94ef23d17a2b4",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "No articles match your search criteria. Try different keywords or change the language filter."
+        },
+        "10/0/init/body/19/argument/3/7/expression/alternate/alternate/consequent/7": {
+          "type": "element",
+          "hash": "36f5d05a01edc34783bcab4f6e84aac9",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Clear filters"
+        },
+        "10/0/init/body/19/argument/3/7/expression/alternate/consequent/5/expression/right/1/1": {
+          "type": "element",
+          "hash": "f2b666971d5c1073888bd0fc0a4a8ea0",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Showing <element:span><expression/></element:span>  to <element:span><function:Math.min/></element:span>  of <element:span>{pagination.total}</element:span>  article(s)"
+        },
+        "10/0/init/body/19/argument/3/7/expression/alternate/consequent/5/expression/right/1/3/1": {
+          "type": "element",
+          "hash": "14e219c44140f9de4c290c108f45e9f6",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Previous"
+        },
+        "10/0/init/body/19/argument/3/7/expression/alternate/consequent/5/expression/right/1/3/3": {
+          "type": "element",
+          "hash": "1cbb692f392b7f197f549c17c7e69c5a",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Page {currentPage} of {pagination.totalPages}"
+        },
+        "10/0/init/body/19/argument/3/7/expression/alternate/consequent/5/expression/right/1/3/5": {
+          "type": "element",
+          "hash": "415b69d356dca0c85492c614018cdb27",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Next"
+        }
+      }
+    }
+  }
+}
