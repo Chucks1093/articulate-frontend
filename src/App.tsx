@@ -12,6 +12,7 @@ import { getArticleDetails } from "./scripts/article.loader";
 import { env } from "./utils/env.utils";
 import { requireAuth } from "./scripts/auth.loader";
 import ArticleOverviewLayout from "./components/article/ArticleOverviewLayout";
+import { LingoProviderWrapper, loadDictionary } from "lingo.dev/react/client";
 
 const router = createBrowserRouter([
 	{
@@ -50,12 +51,6 @@ const router = createBrowserRouter([
 		],
 	},
 
-	// {
-	// 	path: "/articles/:docId",
-	// 	element: <ArticlePreview />,
-	// 	loader: getArticleDetails,
-	// },
-
 	{
 		path: "/auth/callback",
 		element: <AuthCallback />,
@@ -64,9 +59,9 @@ const router = createBrowserRouter([
 
 export default function App() {
 	return (
-		<>
+		<LingoProviderWrapper loadDictionary={(locale) => loadDictionary(locale)}>
 			<Toaster />
 			<RouterProvider router={router} />
-		</>
+		</LingoProviderWrapper>
 	);
 }

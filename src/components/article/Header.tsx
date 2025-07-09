@@ -15,6 +15,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { useProfileStore } from "@/hooks/useProfileStore";
 import { cn } from "@/lib/utils";
+import { LocaleSwitcher } from "lingo.dev/react/client";
 
 type HeaderProps = {
 	className?: string;
@@ -149,14 +150,27 @@ function Header({ className, title = "Articulate" }: HeaderProps) {
 					/>
 				</div>
 			</Link>
-
-			{/* Title - Always visible */}
-			<div className='flex items-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 justify-center text-app-primary font-montserrat font-medium text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl'>
-				{title}
+			<div className='flex items-center gap-2 sm:gap-3'>
+				<div className='flex items-center  justify-center text-app-primary font-montserrat font-medium text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl'>
+					{title}
+				</div>
+				{/* Separator */}
+				{profile && <div className='w-px h-4 sm:h-5 bg-zinc-600' />}
+				<div className='text-xs sm:text-sm'>
+					<LocaleSwitcher
+						locales={["en", "es", "fr", "de"]}
+						className='bg-zinc-700 border border-zinc-600 rounded-full px-2 py-0.5 text-zinc-300 hover:bg-zinc-600 transition-all duration-200 font-grotesk text-xs sm:text-sm [&_svg]:mr-6 [&_svg]:text-red-900'
+					/>
+				</div>
 			</div>
 
-			{/* Auth Button - Always visible */}
-			<div className='flex items-center'>
+			{/* Title - Always visible */}
+
+			{/* Right side - Language selector and Auth Button */}
+			<div className=''>
+				{/* Language Selector */}
+
+				{/* Auth Button */}
 				<AuthButton />
 			</div>
 		</header>

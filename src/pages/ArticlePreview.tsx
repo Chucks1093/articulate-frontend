@@ -98,7 +98,7 @@ const ArticlePreview = () => {
 						<img
 							src={article.cover_photo}
 							alt='Article cover'
-							className='w-full rounded-xl h-p object-cover'
+							className='w-full rounded-xl md:h-[33rem] h-[24rem] object-cover'
 						/>
 					</div>
 				)}
