@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { TranslatedArticle, Language } from "@/types/article.types";
 import { formatDate } from "@/utils/helpers.utils";
-import { useNavigate } from "react-router";
+
 import { cn } from "@/lib/utils";
 import {
 	DropdownMenu,
@@ -32,17 +32,13 @@ const ArticleCard = memo(function ArticleCard({
 	article,
 	bg = "bg-gray-100",
 }: ArticleCardProps) {
-	const navigate = useNavigate();
 	const [downloading, setDownloading] = useState(false);
 	const [deleting, setDeleting] = useState(false);
-
-	const handleView = () => {
-		navigate(`/articles/${article.doc_id}`);
-	};
 
 	const handleDownload = async () => {
 		try {
 			setDownloading(true);
+			await articleService.downloadArticlePDF(article.doc_id, article.title);
 			console.log("Downloading article:", article.title);
 			// Add your download logic here
 		} catch (error) {
@@ -127,13 +123,12 @@ const ArticleCard = memo(function ArticleCard({
 			{/* Action Buttons */}
 			<div className='flex justify-between items-center gap-3 pt-4 pb-2 px-2'>
 				<div className='flex gap-2 flex-1'>
-					<button
-						onClick={handleView}
-						disabled={deleting}
+					<a
+						href={`/articles/${article.doc_id}`}
 						className='bg-zinc-800 hover:bg-zinc-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 font-grotesk disabled:opacity-50 disabled:cursor-not-allowed'>
 						<Eye className='w-4 h-4' />
 						View
-					</button>
+					</a>
 				</div>
 
 				<div className='flex items-center gap-2'>

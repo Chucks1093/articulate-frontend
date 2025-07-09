@@ -42,10 +42,8 @@ const TranslatedArticles: React.FC = () => {
 					userId: userId,
 				});
 
-				const data = [...response.data, ...response.data];
-
 				setPaginatedData(response);
-				setAllArticles(data);
+				setAllArticles(response.data);
 			} catch (error) {
 				console.error("Error loading articles:", error);
 				setPaginatedData({
