@@ -283,7 +283,7 @@ function Hero() {
 	const { currentLanguage } = useLanguageCycler();
 	return (
 		<section className='bg-white md:min-h-[45rem] h-screen flex md:items-center  relative overflow-hidden justify-center w-full  '>
-			<div className='max-w-3xl relative z-10 h-fit  ticket-border top-[15vh] md:top-[1.5rem] mx-8 rounded-md'>
+			<div className='max-w-3xl relative z-10 h-fit  ticket-border top-[15vh] md:top-[1.5rem] mx-8 rounded-md w-[98%]'>
 				<FeatureItem
 					code={currentLanguage.code}
 					title='Global Access'
@@ -292,7 +292,7 @@ function Hero() {
 					iconBgColor='bg-blue-50'
 					className='absolute right-2 -top-10  h-fit md:right-[4%] z-10 bg-gray-100  border md:hidden'
 				/>
-				<div className='bg-white py-9 md:py-14 ticket-shape px-5 md:px-3 rounded-md'>
+				<div className='bg-white py-9 md:py-14 ticket-shape px-4 md:px-3 rounded-md  '>
 					<div className='z-10 relative text-center'>
 						<img
 							className='w-[6rem] md:w-[8rem] mx-auto mb-4'
