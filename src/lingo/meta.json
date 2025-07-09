@@ -191,7 +191,7 @@
     },
     "components/home/Header.tsx": {
       "scopes": {
-        "13/body/10/0/init/body/1/consequent/0/consequent/0/argument/1/1/1/7/expression/right/1": {
+        "14/body/10/0/init/body/1/consequent/0/consequent/0/argument/1/1/1/7/expression/right/1": {
           "type": "element",
           "hash": "9e44f00a9ad68d736dd130f91e0b3ec7",
           "context": "",
@@ -199,7 +199,7 @@
           "overrides": {},
           "content": "F"
         },
-        "13/body/10/0/init/body/1/consequent/0/consequent/0/argument/3/13/3": {
+        "14/body/10/0/init/body/1/consequent/0/consequent/0/argument/3/13/3": {
           "type": "element",
           "hash": "06efb815f8e1f5d09e63d262ba48b4e7",
           "context": "",
@@ -207,7 +207,7 @@
           "overrides": {},
           "content": "Sign Out"
         },
-        "13/body/10/0/init/body/1/consequent/0/consequent/0/argument/3/3/3/5/expression/right": {
+        "14/body/10/0/init/body/1/consequent/0/consequent/0/argument/3/3/3/5/expression/right": {
           "type": "element",
           "hash": "66d0af115156a953a11a62849730ad4d",
           "context": "",
@@ -215,7 +215,7 @@
           "overrides": {},
           "content": "<expression/><expression/>  Plan"
         },
-        "13/body/10/0/init/body/1/consequent/0/consequent/0/argument/3/5/3": {
+        "14/body/10/0/init/body/1/consequent/0/consequent/0/argument/3/5/3": {
           "type": "element",
           "hash": "d83ee27c9a0851d33f7b4640d86fc8e2",
           "context": "",
@@ -223,7 +223,7 @@
           "overrides": {},
           "content": "Follow us on Twitter"
         },
-        "13/body/10/0/init/body/1/consequent/0/consequent/0/argument/3/7/1/3": {
+        "14/body/10/0/init/body/1/consequent/0/consequent/0/argument/3/7/1/3": {
           "type": "element",
           "hash": "68f4b4a1c640a972c5562b4d5139da06",
           "context": "",
@@ -231,7 +231,7 @@
           "overrides": {},
           "content": "View Articles"
         },
-        "13/body/10/0/init/body/1/consequent/0/consequent/0/argument/3/9/3": {
+        "14/body/10/0/init/body/1/consequent/0/consequent/0/argument/3/9/3": {
           "type": "element",
           "hash": "c5ef2d2c55c6a65b2b31321e3b9d5b5f",
           "context": "",
@@ -239,7 +239,7 @@
           "overrides": {},
           "content": "Email Us"
         },
-        "13/body/10/0/init/body/2/argument/1": {
+        "14/body/10/0/init/body/2/argument/1": {
           "type": "element",
           "hash": "48ddf2c66c960076cb0b185c95ec025a",
           "context": "",
@@ -247,7 +247,7 @@
           "overrides": {},
           "content": "Sign In<element:LogOut></element:LogOut>"
         },
-        "13/body/11/0/init/body/1/argument/1/7/expression/right/1": {
+        "14/body/11/0/init/body/1/argument/1/7/expression/right/1": {
           "type": "element",
           "hash": "85ef5290cd394ecf9780f43f72270d19",
           "context": "",
@@ -255,7 +255,7 @@
           "overrides": {},
           "content": "F"
         },
-        "13/body/11/0/init/body/1/argument/3/5/expression/right": {
+        "14/body/11/0/init/body/1/argument/3/5/expression/right": {
           "type": "element",
           "hash": "39ab6dc85dd627e5d19c8db7a068aa95",
           "context": "",
@@ -263,7 +263,7 @@
           "overrides": {},
           "content": "<expression/><expression/> Plan"
         },
-        "13/body/12/argument/15/1/1-aria-label": {
+        "14/body/12/argument/15/1/1-aria-label": {
           "type": "attribute",
           "hash": "cffc8557180f989ff0f277aceda35369",
           "context": "",
@@ -271,7 +271,7 @@
           "overrides": {},
           "content": "Toggle mobile menu"
         },
-        "13/body/12/argument/15/3/1/11/1/expression/consequent/1/1": {
+        "14/body/12/argument/15/3/1/11/1/expression/consequent/1/1": {
           "type": "element",
           "hash": "cb29a1b93bba2a156008abf8be8d5765",
           "context": "",
@@ -279,7 +279,7 @@
           "overrides": {},
           "content": "<element:LayoutPanelTop></element:LayoutPanelTop> View Articles"
         },
-        "13/body/12/argument/15/3/1/11/1/expression/consequent/3": {
+        "14/body/12/argument/15/3/1/11/1/expression/consequent/3": {
           "type": "element",
           "hash": "759365c3288309c791e664686cd45962",
           "context": "",
@@ -287,7 +287,7 @@
           "overrides": {},
           "content": "<element:LogOut></element:LogOut> Sign Out"
         },
-        "13/body/12/argument/3/1/1-alt": {
+        "14/body/12/argument/3/1/1-alt": {
           "type": "attribute",
           "hash": "f9fd2de9ea8b044ffcfa1030fbc353c1",
           "context": "",
@@ -295,7 +295,7 @@
           "overrides": {},
           "content": "Articulate Logo"
         },
-        "13/body/12/argument/3/3": {
+        "14/body/12/argument/3/3": {
           "type": "element",
           "hash": "b9fab29656a5946a45113c5eab87ae3b",
           "context": "",
@@ -303,7 +303,7 @@
           "overrides": {},
           "content": "Articulate"
         },
-        "13/body/9/0/init/body/1": {
+        "14/body/9/0/init/body/1": {
           "type": "element",
           "hash": "a4dd7a71ea39855bb1a757551a57e2da",
           "context": "",
@@ -311,7 +311,7 @@
           "overrides": {},
           "content": "Pricing"
         },
-        "13/body/9/0/init/body/3": {
+        "14/body/9/0/init/body/3": {
           "type": "element",
           "hash": "3355a35b2c99cd0e03a694e9dc07553c",
           "context": "",
@@ -319,7 +319,7 @@
           "overrides": {},
           "content": "Twitter"
         },
-        "13/body/9/0/init/body/5": {
+        "14/body/9/0/init/body/5": {
           "type": "element",
           "hash": "4e23295fa14d02844fb1307f37385ac8",
           "context": "",
