@@ -292,7 +292,7 @@ function Hero() {
 					iconBgColor='bg-blue-50'
 					className='absolute right-2 -top-10  h-fit md:right-[4%] z-10 bg-gray-100  border md:hidden'
 				/>
-				<div className='bg-white py-9 md:py-14 ticket-shape px-3 rounded-md'>
+				<div className='bg-white py-9 md:py-14 ticket-shape px-5 md:px-3 rounded-md'>
 					<div className='z-10 relative text-center'>
 						<img
 							className='w-[6rem] md:w-[8rem] mx-auto mb-4'

@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { articleService } from "@/services/article.service";
+import showToast from "@/utils/toast.utils";
 
 interface ArticleCardProps {
 	article: TranslatedArticle["article"];
@@ -41,6 +42,7 @@ const ArticleCard = memo(function ArticleCard({
 			await navigator.clipboard.writeText(
 				`${window.location.origin}/articles/${article.doc_id}`
 			);
+			showToast.success("Link Copied");
 			// Optionally, show a toast or feedback here
 			console.log("Link copied to clipboard!");
 		} catch (err) {
@@ -51,7 +53,9 @@ const ArticleCard = memo(function ArticleCard({
 	const handleDownload = async () => {
 		try {
 			setDownloading(true);
+			showToast.loading("Generating PDF");
 			await articleService.downloadArticlePDF(article.doc_id, article.title);
+			showToast.success("PDF Generation complete");
 			console.log("Downloading article:", article.title);
 			// Add your download logic here
 		} catch (error) {

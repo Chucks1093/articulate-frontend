@@ -3,6 +3,54 @@
   "files": {
     "components/article/ArticleCard.tsx": {
       "scopes": {
+        "10/0/init/0/body/7/argument/11/1/1": {
+          "type": "element",
+          "hash": "5375aa9a678c74c50112167ed702b884",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "<element:Eye></element:Eye> View"
+        },
+        "10/0/init/0/body/7/argument/11/3/1": {
+          "type": "element",
+          "hash": "701521ad108cb43a317423e1ce97f66f",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "PDF"
+        },
+        "10/0/init/0/body/7/argument/11/3/5/1/1-aria-label": {
+          "type": "attribute",
+          "hash": "443bd91d1d6563e0344b8323f75928bd",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "More actions"
+        },
+        "10/0/init/0/body/7/argument/11/3/5/3/3": {
+          "type": "element",
+          "hash": "95a9e75db9ccf68347e4983105ae1f72",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "<element:Copy></element:Copy> Copy Link"
+        },
+        "10/0/init/0/body/7/argument/11/3/5/3/5": {
+          "type": "element",
+          "hash": "d087a8f3c88ed95586a0754588569c66",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "<element:ExternalLink></element:ExternalLink> Visit Original"
+        },
+        "10/0/init/0/body/7/argument/7/3/expression/right": {
+          "type": "element",
+          "hash": "9b90407bbc9d596e1cd2796c5a206da5",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "by {article.author}"
+        },
         "9/0/init/0/body/7/argument/11/1/1": {
           "type": "element",
           "hash": "5375aa9a678c74c50112167ed702b884",
