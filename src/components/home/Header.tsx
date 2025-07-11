@@ -25,6 +25,7 @@ import {
 import { useProfileStore } from "@/hooks/useProfileStore";
 import { cn } from "@/lib/utils";
 import { LocaleSwitcher } from "lingo.dev/react-client";
+import { useCustomer } from "autumn-js/react";
 
 type HeaderProps = {
 	className?: string;
@@ -37,6 +38,8 @@ function Header(props: HeaderProps) {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 	const { profile, clearProfile, setProfile } = useProfileStore();
 	const navigate = useNavigate();
+	const { customer } = useCustomer();
+
 	const [userPlan, setUserPlan] = useState<"free" | "enterprise" | "pro">(
 		"free"
 	);
@@ -46,10 +49,13 @@ function Header(props: HeaderProps) {
 			setIsLoading(true);
 			try {
 				const userProfile = await authService.getCurrentUser();
-				if (userProfile) {
+				if (userProfile && customer) {
 					setIsAuthenticated(userProfile.authenticated);
 					setProfile(userProfile);
-					setUserPlan("enterprise");
+					setUserPlan(
+						(customer.products.at(-1)?.id as typeof userPlan) ||
+							"free"
+					);
 				}
 			} catch (error) {
 				console.error("Authentication check failed:", error);
@@ -59,7 +65,7 @@ function Header(props: HeaderProps) {
 		};
 
 		checkIsAuthenticated();
-	}, [setProfile]);
+	}, []);
 
 	const getInitials = (name: string) => {
 		return name
@@ -83,11 +89,13 @@ function Header(props: HeaderProps) {
 
 	const NavigationLinks = ({ mobile = false, onLinkClick = () => {} }) => (
 		<nav
-			className={`flex gap-6 text-gray-300 ${mobile ? "flex-col" : "items-center"}`}>
+			className={`flex gap-6 text-gray-300 ${mobile ? "flex-col" : "items-center"}`}
+		>
 			<Link
 				to='/pricing'
 				className='hover:text-white transition-colors duration-200 py-2'
-				onClick={onLinkClick}>
+				onClick={onLinkClick}
+			>
 				Pricing
 			</Link>
 			<a
@@ -95,13 +103,15 @@ function Header(props: HeaderProps) {
 				className='hover:text-white transition-colors duration-200 py-2'
 				target='_blank'
 				rel='noopener noreferrer'
-				onClick={onLinkClick}>
+				onClick={onLinkClick}
+			>
 				Twitter
 			</a>
 			<a
 				href='mailto:contact@example.com'
 				className='hover:text-white transition-colors duration-200 py-2'
-				onClick={onLinkClick}>
+				onClick={onLinkClick}
+			>
 				Email
 			</a>
 		</nav>
@@ -112,7 +122,9 @@ function Header(props: HeaderProps) {
 			return (
 				<Skeleton
 					className={`bg-gray-300/20 rounded-3xl ${
-						mobile ? "h-12 w-full" : "h-9 lg:h-10 w-[120px] lg:w-[140px]"
+						mobile
+							? "h-12 w-full"
+							: "h-9 lg:h-10 w-[120px] lg:w-[140px]"
 					}`}
 				/>
 			);
@@ -126,7 +138,8 @@ function Header(props: HeaderProps) {
 						<DropdownMenuTrigger asChild>
 							<Button
 								variant='ghost'
-								className='relative flex items-center gap-2 bg-zinc-700 border border-zinc-600 rounded-full hover:bg-zinc-600 transition-all duration-200 p-1'>
+								className='relative flex items-center gap-2 bg-zinc-700 border border-zinc-600 rounded-full hover:bg-zinc-600 transition-all duration-200 p-1'
+							>
 								<div className='relative'>
 									<Avatar className='w-9 h-9'>
 										<AvatarImage
@@ -159,7 +172,8 @@ function Header(props: HeaderProps) {
 
 						<DropdownMenuContent
 							align='end'
-							className='w-72 bg-zinc-800 backdrop-blur-md shadow-xl border border-zinc-700 rounded-xl p-3'>
+							className='w-72 bg-zinc-800 backdrop-blur-md shadow-xl border border-zinc-700 rounded-xl p-3'
+						>
 							{/* User Info Section */}
 							<div className='flex flex-col items-center py-4 px-2 bg-zinc-700/50 rounded-lg mb-3'>
 								<Avatar className='w-16 h-16 mb-3 ring-2 ring-app-primary shadow-lg'>
@@ -185,7 +199,8 @@ function Header(props: HeaderProps) {
 												userPlan === "enterprise"
 													? "bg-app-primary text-zinc-800"
 													: "bg-zinc-600 text-zinc-300"
-											}`}>
+											}`}
+										>
 											{userPlan === "pro" && (
 												<Crown className='w-3 h-3 mr-1' />
 											)}
@@ -201,7 +216,8 @@ function Header(props: HeaderProps) {
 								className='cursor-pointer flex items-center px-3 py-2.5 text-sm text-zinc-300 hover:bg-zinc-700 focus:bg-zinc-700 rounded-lg transition-colors'
 								onClick={() => {
 									window.open("https://x.com", "_blank");
-								}}>
+								}}
+							>
 								<Twitter className='mr-3 h-4 w-4' />
 								<span className='font-grotesk'>
 									Follow us on Twitter
@@ -210,18 +226,25 @@ function Header(props: HeaderProps) {
 
 							<DropdownMenuItem
 								className='cursor-pointer flex items-center px-3 py-2.5 text-sm text-zinc-300 hover:bg-zinc-700 focus:bg-zinc-700 rounded-lg transition-colors'
-								asChild>
+								asChild
+							>
 								<Link to='/articles'>
 									<LayoutPanelTop className='mr-3 h-4 w-4' />
-									<span className='font-grotesk'>View Articles</span>
+									<span className='font-grotesk'>
+										View Articles
+									</span>
 								</Link>
 							</DropdownMenuItem>
 
 							<DropdownMenuItem
 								className='cursor-pointer flex items-center px-3 py-2.5 text-sm text-zinc-300 hover:bg-zinc-700 focus:bg-zinc-700 rounded-lg transition-colors'
 								onClick={() => {
-									window.open("mailto:contact@example.com", "_blank");
-								}}>
+									window.open(
+										"mailto:contact@example.com",
+										"_blank"
+									);
+								}}
+							>
 								<MailIcon className='mr-3 h-4 w-4' />
 								<span className='font-grotesk'>Email Us</span>
 							</DropdownMenuItem>
@@ -230,7 +253,8 @@ function Header(props: HeaderProps) {
 
 							<DropdownMenuItem
 								className='cursor-pointer flex items-center px-3 py-2.5 text-sm text-red-400 hover:bg-red-900/20 focus:bg-red-900/20 rounded-lg transition-colors'
-								onClick={handleLogout}>
+								onClick={handleLogout}
+							>
 								<LogOut className='mr-3 h-4 w-4' />
 								<span className='font-grotesk'>Sign Out</span>
 							</DropdownMenuItem>
@@ -251,12 +275,13 @@ function Header(props: HeaderProps) {
 					mobile
 						? "w-full h-12"
 						: "px-4 lg:px-6 py-2 lg:py-2.5 text-sm lg:text-base"
-				}`}>
-				<Link
-					to='/auth'
-					onClick={onLinkClick}>
+				}`}
+			>
+				<Link to='/auth' onClick={onLinkClick}>
 					Sign In
-					<LogOut className={mobile ? "w-5 ml-2" : "w-4 lg:w-5 ml-2"} />
+					<LogOut
+						className={mobile ? "w-5 ml-2" : "w-4 lg:w-5 ml-2"}
+					/>
 				</Link>
 			</Button>
 		);
@@ -286,7 +311,9 @@ function Header(props: HeaderProps) {
 						)}
 					{userPlan === "free" && (
 						<div className='absolute -top-1 -right-1 w-6 h-6 bg-zinc-600 rounded-full flex items-center justify-center border-2 border-zinc-800'>
-							<span className='text-xs text-white font-bold'>F</span>
+							<span className='text-xs text-white font-bold'>
+								F
+							</span>
 						</div>
 					)}
 				</div>
@@ -303,9 +330,14 @@ function Header(props: HeaderProps) {
 								userPlan === "pro" || userPlan === "enterprise"
 									? "bg-app-primary text-zinc-800"
 									: "bg-zinc-600 text-zinc-300"
-							}`}>
-							{userPlan === "pro" && <Crown className='w-3 h-3 mr-1' />}
-							{userPlan.charAt(0).toUpperCase() + userPlan.slice(1)} Plan
+							}`}
+						>
+							{userPlan === "pro" && (
+								<Crown className='w-3 h-3 mr-1' />
+							)}
+							{userPlan.charAt(0).toUpperCase() +
+								userPlan.slice(1)}{" "}
+							Plan
 						</Badge>
 					)}
 				</div>
@@ -318,11 +350,13 @@ function Header(props: HeaderProps) {
 			className={cn(
 				"absolute flex items-center justify-between w-[95%] sm:w-[90%] mx-auto max-w-4xl top-[2vh] md:top-[4vh] left-1/2 -translate-x-1/2 px-3 sm:px-4 md:px-3 z-20 bg-zinc-800 rounded-2xl sm:rounded-3xl lg:rounded-[3rem] shadow-apple-xl py-2.5 sm:py-3",
 				props.className
-			)}>
+			)}
+		>
 			{/* Logo */}
 			<Link
 				to='/'
-				className='flex items-center gap-2 sm:gap-3 relative z-30'>
+				className='flex items-center gap-2 sm:gap-3 relative z-30'
+			>
 				<div className='p-1.5 sm:p-2 bg-app-primary rounded-full'>
 					<img
 						src='/icons/logo.svg'
@@ -353,19 +387,19 @@ function Header(props: HeaderProps) {
 			</div>
 
 			{/* Mobile Menu */}
-			<Sheet
-				open={mobileMenuOpen}
-				onOpenChange={setMobileMenuOpen}>
+			<Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
 				<SheetTrigger asChild>
 					<button
 						className='md:hidden text-gray-300 hover:text-white hover:bg-zinc-700 p-2 rounded-lg transition-colors'
-						aria-label='Toggle mobile menu'>
+						aria-label='Toggle mobile menu'
+					>
 						<Menu className='w-6 h-6' />
 					</button>
 				</SheetTrigger>
 				<SheetContent
 					side='top'
-					className='bg-zinc-800 border-zinc-700 rounded-b-2xl'>
+					className='bg-zinc-800 border-zinc-700 rounded-b-2xl'
+				>
 					<div className='flex flex-col gap-6 pt-6'>
 						{/* Show user profile if authenticated */}
 						{isAuthenticated && profile && <MobileUserProfile />}
@@ -382,10 +416,14 @@ function Header(props: HeaderProps) {
 								<>
 									<Button
 										asChild
-										className='w-full h-12 bg-zinc-100 text-zinc-700 font-marlin rounded-3xl shadow-lg font-medium transition-all hover:shadow-xl hover:bg-white'>
+										className='w-full h-12 bg-zinc-100 text-zinc-700 font-marlin rounded-3xl shadow-lg font-medium transition-all hover:shadow-xl hover:bg-white'
+									>
 										<Link
 											to='/articles'
-											onClick={() => setMobileMenuOpen(false)}>
+											onClick={() =>
+												setMobileMenuOpen(false)
+											}
+										>
 											<LayoutPanelTop className='w-5 mr-2' />
 											View Articles
 										</Link>
@@ -395,7 +433,8 @@ function Header(props: HeaderProps) {
 											handleLogout();
 											setMobileMenuOpen(false);
 										}}
-										className='w-full h-12 bg-red-600 text-white font-marlin rounded-3xl shadow-lg font-medium transition-all hover:shadow-xl hover:bg-red-700'>
+										className='w-full h-12 bg-red-600 text-white font-marlin rounded-3xl shadow-lg font-medium transition-all hover:shadow-xl hover:bg-red-700'
+									>
 										<LogOut className='w-5 mr-2' />
 										Sign Out
 									</Button>
