@@ -49,11 +49,11 @@ function Header(props: HeaderProps) {
 			setIsLoading(true);
 			try {
 				const userProfile = await authService.getCurrentUser();
-				if (userProfile && customer) {
+				if (userProfile) {
 					setIsAuthenticated(userProfile.authenticated);
 					setProfile(userProfile);
 					setUserPlan(
-						(customer.products.at(-1)?.id as typeof userPlan) ||
+						(customer?.products.at(-1)?.id as typeof userPlan) ||
 							"free"
 					);
 				}
@@ -65,7 +65,7 @@ function Header(props: HeaderProps) {
 		};
 
 		checkIsAuthenticated();
-	}, []);
+	}, [customer, setProfile]);
 
 	const getInitials = (name: string) => {
 		return name
