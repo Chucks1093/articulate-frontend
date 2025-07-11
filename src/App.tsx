@@ -27,11 +27,7 @@ const router = createBrowserRouter([
 	},
 	{
 		path: "/pricing",
-		element: (
-			<AutumnProvider backendUrl={env.API_BASE_URL}>
-				<Pricing />
-			</AutumnProvider>
-		),
+		element: <Pricing />,
 	},
 
 	{
@@ -59,9 +55,13 @@ const router = createBrowserRouter([
 
 export default function App() {
 	return (
-		<LingoProviderWrapper loadDictionary={(locale) => loadDictionary(locale)}>
+		<LingoProviderWrapper
+			loadDictionary={(locale) => loadDictionary(locale)}
+		>
 			<Toaster />
-			<RouterProvider router={router} />
+			<AutumnProvider backendUrl={env.API_BASE_URL}>
+				<RouterProvider router={router} />
+			</AutumnProvider>
 		</LingoProviderWrapper>
 	);
 }
