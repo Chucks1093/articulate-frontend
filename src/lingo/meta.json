@@ -50,54 +50,6 @@
           "skip": false,
           "overrides": {},
           "content": "by {article.author}"
-        },
-        "9/0/init/0/body/7/argument/11/1/1": {
-          "type": "element",
-          "hash": "5375aa9a678c74c50112167ed702b884",
-          "context": "",
-          "skip": false,
-          "overrides": {},
-          "content": "<element:Eye></element:Eye> View"
-        },
-        "9/0/init/0/body/7/argument/11/3/1": {
-          "type": "element",
-          "hash": "701521ad108cb43a317423e1ce97f66f",
-          "context": "",
-          "skip": false,
-          "overrides": {},
-          "content": "PDF"
-        },
-        "9/0/init/0/body/7/argument/11/3/5/1/1-aria-label": {
-          "type": "attribute",
-          "hash": "443bd91d1d6563e0344b8323f75928bd",
-          "context": "",
-          "skip": false,
-          "overrides": {},
-          "content": "More actions"
-        },
-        "9/0/init/0/body/7/argument/11/3/5/3/3": {
-          "type": "element",
-          "hash": "95a9e75db9ccf68347e4983105ae1f72",
-          "context": "",
-          "skip": false,
-          "overrides": {},
-          "content": "<element:Copy></element:Copy> Copy Link"
-        },
-        "9/0/init/0/body/7/argument/11/3/5/3/5": {
-          "type": "element",
-          "hash": "d087a8f3c88ed95586a0754588569c66",
-          "context": "",
-          "skip": false,
-          "overrides": {},
-          "content": "<element:ExternalLink></element:ExternalLink> Visit Original"
-        },
-        "9/0/init/0/body/7/argument/7/3/expression/right": {
-          "type": "element",
-          "hash": "9b90407bbc9d596e1cd2796c5a206da5",
-          "context": "",
-          "skip": false,
-          "overrides": {},
-          "content": "by {article.author}"
         }
       }
     },
@@ -247,119 +199,7 @@
     },
     "components/home/Header.tsx": {
       "scopes": {
-        "14/body/10/0/init/body/1/consequent/0/consequent/0/argument/1/1/1/7/expression/right/1": {
-          "type": "element",
-          "hash": "9e44f00a9ad68d736dd130f91e0b3ec7",
-          "context": "",
-          "skip": false,
-          "overrides": {},
-          "content": "F"
-        },
-        "14/body/10/0/init/body/1/consequent/0/consequent/0/argument/3/13/3": {
-          "type": "element",
-          "hash": "06efb815f8e1f5d09e63d262ba48b4e7",
-          "context": "",
-          "skip": false,
-          "overrides": {},
-          "content": "Sign Out"
-        },
-        "14/body/10/0/init/body/1/consequent/0/consequent/0/argument/3/3/3/5/expression/right": {
-          "type": "element",
-          "hash": "66d0af115156a953a11a62849730ad4d",
-          "context": "",
-          "skip": false,
-          "overrides": {},
-          "content": "<expression/><expression/>  Plan"
-        },
-        "14/body/10/0/init/body/1/consequent/0/consequent/0/argument/3/5/3": {
-          "type": "element",
-          "hash": "d83ee27c9a0851d33f7b4640d86fc8e2",
-          "context": "",
-          "skip": false,
-          "overrides": {},
-          "content": "Follow us on Twitter"
-        },
-        "14/body/10/0/init/body/1/consequent/0/consequent/0/argument/3/7/1/3": {
-          "type": "element",
-          "hash": "68f4b4a1c640a972c5562b4d5139da06",
-          "context": "",
-          "skip": false,
-          "overrides": {},
-          "content": "View Articles"
-        },
-        "14/body/10/0/init/body/1/consequent/0/consequent/0/argument/3/9/3": {
-          "type": "element",
-          "hash": "c5ef2d2c55c6a65b2b31321e3b9d5b5f",
-          "context": "",
-          "skip": false,
-          "overrides": {},
-          "content": "Email Us"
-        },
-        "14/body/10/0/init/body/2/argument/1": {
-          "type": "element",
-          "hash": "48ddf2c66c960076cb0b185c95ec025a",
-          "context": "",
-          "skip": false,
-          "overrides": {},
-          "content": "Sign In<element:LogOut></element:LogOut>"
-        },
-        "14/body/11/0/init/body/1/argument/1/7/expression/right/1": {
-          "type": "element",
-          "hash": "85ef5290cd394ecf9780f43f72270d19",
-          "context": "",
-          "skip": false,
-          "overrides": {},
-          "content": "F"
-        },
-        "14/body/11/0/init/body/1/argument/3/5/expression/right": {
-          "type": "element",
-          "hash": "39ab6dc85dd627e5d19c8db7a068aa95",
-          "context": "",
-          "skip": false,
-          "overrides": {},
-          "content": "<expression/><expression/> Plan"
-        },
-        "14/body/12/argument/15/1/1-aria-label": {
-          "type": "attribute",
-          "hash": "cffc8557180f989ff0f277aceda35369",
-          "context": "",
-          "skip": false,
-          "overrides": {},
-          "content": "Toggle mobile menu"
-        },
-        "14/body/12/argument/15/3/1/11/1/expression/consequent/1/1": {
-          "type": "element",
-          "hash": "cb29a1b93bba2a156008abf8be8d5765",
-          "context": "",
-          "skip": false,
-          "overrides": {},
-          "content": "<element:LayoutPanelTop></element:LayoutPanelTop> View Articles"
-        },
-        "14/body/12/argument/15/3/1/11/1/expression/consequent/3": {
-          "type": "element",
-          "hash": "759365c3288309c791e664686cd45962",
-          "context": "",
-          "skip": false,
-          "overrides": {},
-          "content": "<element:LogOut></element:LogOut> Sign Out"
-        },
-        "14/body/12/argument/3/1/1-alt": {
-          "type": "attribute",
-          "hash": "f9fd2de9ea8b044ffcfa1030fbc353c1",
-          "context": "",
-          "skip": false,
-          "overrides": {},
-          "content": "Articulate Logo"
-        },
-        "14/body/12/argument/3/3": {
-          "type": "element",
-          "hash": "b9fab29656a5946a45113c5eab87ae3b",
-          "context": "",
-          "skip": false,
-          "overrides": {},
-          "content": "Articulate"
-        },
-        "14/body/9/0/init/body/1": {
+        "15/body/10/0/init/body/1": {
           "type": "element",
           "hash": "a4dd7a71ea39855bb1a757551a57e2da",
           "context": "",
@@ -367,7 +207,7 @@
           "overrides": {},
           "content": "Pricing"
         },
-        "14/body/9/0/init/body/3": {
+        "15/body/10/0/init/body/3": {
           "type": "element",
           "hash": "3355a35b2c99cd0e03a694e9dc07553c",
           "context": "",
@@ -375,13 +215,125 @@
           "overrides": {},
           "content": "Twitter"
         },
-        "14/body/9/0/init/body/5": {
+        "15/body/10/0/init/body/5": {
           "type": "element",
           "hash": "4e23295fa14d02844fb1307f37385ac8",
           "context": "",
           "skip": false,
           "overrides": {},
           "content": "Email"
+        },
+        "15/body/11/0/init/body/1/consequent/0/consequent/0/argument/1/1/1/7/expression/right/1": {
+          "type": "element",
+          "hash": "9e44f00a9ad68d736dd130f91e0b3ec7",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "F"
+        },
+        "15/body/11/0/init/body/1/consequent/0/consequent/0/argument/3/13/3": {
+          "type": "element",
+          "hash": "06efb815f8e1f5d09e63d262ba48b4e7",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Sign Out"
+        },
+        "15/body/11/0/init/body/1/consequent/0/consequent/0/argument/3/3/3/5/expression/right": {
+          "type": "element",
+          "hash": "66d0af115156a953a11a62849730ad4d",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "<expression/><expression/>  Plan"
+        },
+        "15/body/11/0/init/body/1/consequent/0/consequent/0/argument/3/5/3": {
+          "type": "element",
+          "hash": "d83ee27c9a0851d33f7b4640d86fc8e2",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Follow us on Twitter"
+        },
+        "15/body/11/0/init/body/1/consequent/0/consequent/0/argument/3/7/1/3": {
+          "type": "element",
+          "hash": "dbb0c818c4a2aa996cef5ea550225a76",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "View Articles"
+        },
+        "15/body/11/0/init/body/1/consequent/0/consequent/0/argument/3/9/3": {
+          "type": "element",
+          "hash": "c5ef2d2c55c6a65b2b31321e3b9d5b5f",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Email Us"
+        },
+        "15/body/11/0/init/body/2/argument/1": {
+          "type": "element",
+          "hash": "48ddf2c66c960076cb0b185c95ec025a",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Sign In<element:LogOut></element:LogOut>"
+        },
+        "15/body/12/0/init/body/1/argument/1/7/expression/right/1": {
+          "type": "element",
+          "hash": "7da1f6f842f600b41ae31e277c5a431b",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "F"
+        },
+        "15/body/12/0/init/body/1/argument/3/5/expression/right": {
+          "type": "element",
+          "hash": "bd57f9e8d547f1b64346a33f224f6e42",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "<expression/><expression/>  Plan"
+        },
+        "15/body/13/argument/15/1/1-aria-label": {
+          "type": "attribute",
+          "hash": "cffc8557180f989ff0f277aceda35369",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Toggle mobile menu"
+        },
+        "15/body/13/argument/15/3/1/11/1/expression/consequent/1/1": {
+          "type": "element",
+          "hash": "cb29a1b93bba2a156008abf8be8d5765",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "<element:LayoutPanelTop></element:LayoutPanelTop> View Articles"
+        },
+        "15/body/13/argument/15/3/1/11/1/expression/consequent/3": {
+          "type": "element",
+          "hash": "759365c3288309c791e664686cd45962",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "<element:LogOut></element:LogOut> Sign Out"
+        },
+        "15/body/13/argument/3/1/1-alt": {
+          "type": "attribute",
+          "hash": "f9fd2de9ea8b044ffcfa1030fbc353c1",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Articulate Logo"
+        },
+        "15/body/13/argument/3/3": {
+          "type": "element",
+          "hash": "b9fab29656a5946a45113c5eab87ae3b",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Articulate"
         }
       }
     },
@@ -681,7 +633,7 @@
           "overrides": {},
           "content": "${originalPrice}"
         },
-        "17/0/init/body/1/argument/11/1-description": {
+        "17/0/init/body/0/argument/11/1-description": {
           "type": "attribute",
           "hash": "0b7d41b4fd8af378b3d510507605afb7",
           "context": "",
@@ -689,7 +641,7 @@
           "overrides": {},
           "content": "Unlock worldwide content"
         },
-        "17/0/init/body/1/argument/11/1-title": {
+        "17/0/init/body/0/argument/11/1-title": {
           "type": "attribute",
           "hash": "7f25299d779c57058dc4a1b3a2ac65e1",
           "context": "",
@@ -697,7 +649,7 @@
           "overrides": {},
           "content": "Global Access"
         },
-        "17/0/init/body/1/argument/11/3": {
+        "17/0/init/body/0/argument/11/3": {
           "type": "element",
           "hash": "2d8f4776d81e9220088f1162fc771cb0",
           "context": "",
@@ -705,7 +657,7 @@
           "overrides": {},
           "content": "Pricing"
         },
-        "17/0/init/body/1/argument/11/5/1-description": {
+        "17/0/init/body/0/argument/11/5/1-description": {
           "type": "attribute",
           "hash": "8f3a76b9b8452c005479e6c6d3eeaca6",
           "context": "",
@@ -713,7 +665,7 @@
           "overrides": {},
           "content": "Perfect for trying out Articulate and translating occasional articles."
         },
-        "17/0/init/body/1/argument/11/5/1-title": {
+        "17/0/init/body/0/argument/11/5/1-title": {
           "type": "attribute",
           "hash": "d57ceb9ca36fb941537a29beddee5026",
           "context": "",
@@ -721,7 +673,7 @@
           "overrides": {},
           "content": "Starter"
         },
-        "17/0/init/body/1/argument/11/5/3-description": {
+        "17/0/init/body/0/argument/11/5/3-description": {
           "type": "attribute",
           "hash": "d206dbc47284ad5ecf74006394b26395",
           "context": "",
@@ -729,7 +681,7 @@
           "overrides": {},
           "content": "Complete translation solution for researchers, students, and professionals."
         },
-        "17/0/init/body/1/argument/11/5/3-title": {
+        "17/0/init/body/0/argument/11/5/3-title": {
           "type": "attribute",
           "hash": "0059ac0aac3f10a46b28c095e697cbbb",
           "context": "",
@@ -737,7 +689,7 @@
           "overrides": {},
           "content": "Professional"
         },
-        "17/0/init/body/1/argument/11/5/5-description": {
+        "17/0/init/body/0/argument/11/5/5-description": {
           "type": "attribute",
           "hash": "97b200b6306330b1a579858e40b7de90",
           "context": "",
@@ -745,7 +697,7 @@
           "overrides": {},
           "content": "Advanced features for teams and organizations that need translation at scale."
         },
-        "17/0/init/body/1/argument/11/5/5-title": {
+        "17/0/init/body/0/argument/11/5/5-title": {
           "type": "attribute",
           "hash": "c70474271708e5b27392fde87462fa26",
           "context": "",
@@ -753,9 +705,9 @@
           "overrides": {},
           "content": "Enterprise"
         },
-        "17/0/init/body/1/argument/11/7/1": {
+        "17/0/init/body/0/argument/11/7/1": {
           "type": "element",
-          "hash": "400f91d6a02402a5ca2c87e827799004",
+          "hash": "4ec22731b651ee9c537dda24bae98f01",
           "context": "",
           "skip": false,
           "overrides": {},
