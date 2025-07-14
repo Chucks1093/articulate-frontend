@@ -13,6 +13,7 @@ import { env } from "./utils/env.utils";
 import { requireAuth } from "./scripts/auth.loader";
 import ArticleOverviewLayout from "./components/article/ArticleOverviewLayout";
 import { LingoProviderWrapper, loadDictionary } from "lingo.dev/react/client";
+import { authService } from "./services/auth.service";
 
 const router = createBrowserRouter([
 	{
@@ -54,12 +55,20 @@ const router = createBrowserRouter([
 ]);
 
 export default function App() {
+	const getToken = async () => {
+		const session = await authService.getSession();
+		return session?.access_token;
+	};
+
 	return (
 		<LingoProviderWrapper
 			loadDictionary={(locale) => loadDictionary(locale)}
 		>
 			<Toaster />
-			<AutumnProvider backendUrl={env.API_BASE_URL}>
+			<AutumnProvider
+				backendUrl={env.API_BASE_URL}
+				getBearerToken={getToken}
+			>
 				<RouterProvider router={router} />
 			</AutumnProvider>
 		</LingoProviderWrapper>
