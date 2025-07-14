@@ -76,31 +76,19 @@ const allFeatures: Feature[] = [
 
 const FreePlanIcon: React.FC = () => (
 	<div className='rounded-lg bg-zinc-800 border border-zinc-700 flex items-center justify-center p-2'>
-		<FileText
-			strokeWidth='1.5'
-			size={32}
-			className='text-zinc-300'
-		/>
+		<FileText strokeWidth='1.5' size={32} className='text-zinc-300' />
 	</div>
 );
 
 const ProPlanIcon: React.FC = () => (
 	<div className='rounded-lg bg-app-primary/20 border border-app-primary/30 flex items-center justify-center p-2'>
-		<Globe
-			strokeWidth='1.5'
-			size={32}
-			className='text-app-primary'
-		/>
+		<Globe strokeWidth='1.5' size={32} className='text-app-primary' />
 	</div>
 );
 
 const EnterprisePlanIcon: React.FC = () => (
 	<div className='rounded-lg bg-purple-500/20 border border-purple-400/30 flex items-center justify-center p-2'>
-		<Zap
-			strokeWidth='1.5'
-			size={32}
-			className='text-purple-400'
-		/>
+		<Zap strokeWidth='1.5' size={32} className='text-purple-400' />
 	</div>
 );
 
@@ -118,7 +106,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
 	quota,
 	className,
 }) => {
-	const { attach } = useCustomer();
+	const { attach, customer } = useCustomer();
 	const getFeatureIncluded = (feature: Feature): boolean => {
 		switch (plan) {
 			case "free":
@@ -146,13 +134,15 @@ const PricingCard: React.FC<PricingCardProps> = ({
 				initial={{ opacity: 0, y: 30 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.25, delay: index * 0.1 }}
-				whileHover={{ y: -5, scale: 1.02 }}>
+				whileHover={{ y: -5, scale: 1.02 }}
+			>
 				{isPopular && (
 					<motion.div
 						className='absolute -top-3 left-1/2 transform -translate-x-1/2'
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
-						transition={{ duration: 0.5 }}>
+						transition={{ duration: 0.5 }}
+					>
 						<span className='bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-medium shadow-lg font-grotesk'>
 							Most Popular
 						</span>
@@ -194,8 +184,14 @@ const PricingCard: React.FC<PricingCardProps> = ({
 				<motion.button
 					onClick={async () => {
 						const res = await attach({ productId: plan });
+						if (!customer)
+							return showToast.error(
+								`Please log in to use the ${plan} plan`
+							);
 						if (res.error?.code === "product_already_attached") {
-							showToast.success(`User is already on the ${plan} plan`);
+							return showToast.success(
+								`User is already on the ${plan} plan`
+							);
 						}
 					}}
 					className={`flex items-center justify-center gap-3 w-full my-6 py-3 rounded-xl font-grotesk font-semibold transition-all ${
@@ -207,7 +203,8 @@ const PricingCard: React.FC<PricingCardProps> = ({
 					}`}
 					whileHover={{ scale: 1.05 }}
 					whileTap={{ scale: 0.95 }}
-					transition={{ type: "spring", stiffness: 400, damping: 17 }}>
+					transition={{ type: "spring", stiffness: 400, damping: 17 }}
+				>
 					{buttonText} <MoveRight size={18} />
 				</motion.button>
 
@@ -216,66 +213,74 @@ const PricingCard: React.FC<PricingCardProps> = ({
 						Features Included:
 					</h2>
 					<div className='space-y-1'>
-						{allFeatures.map((feature: Feature, featureIndex: number) => {
-							const isIncluded = getFeatureIncluded(feature);
-							const isLastFeature =
-								allFeatures.length == featureIndex + 1;
-							return (
-								<motion.div
-									className={`flex items-center justify-between gap-2 py-3 px-2 rounded-lg transition-colors hover:bg-zinc-800/50 ${
-										!isLastFeature && "border-b-zinc-800 border-b"
-									}`}
-									key={featureIndex}
-									initial={{ opacity: 0 }}
-									animate={{ opacity: 1 }}
-									transition={{
-										duration: 0.4,
-									}}>
-									<div
-										className={`w-5 h-5 rounded-md flex items-center justify-center p-1 ${
-											isIncluded
-												? "bg-app-primary"
-												: "bg-zinc-700 border border-zinc-600"
-										}`}>
-										{isIncluded ? (
-											<Check
-												className='text-zinc-800'
-												strokeWidth='3'
-												size={12}
-											/>
-										) : (
-											<X
-												className='text-zinc-400'
-												strokeWidth='3'
-												size={12}
-											/>
-										)}
-									</div>
-									<p
-										className={`mr-auto font-grotesk ${
-											isIncluded ? "text-white" : "text-zinc-500"
-										}`}>
-										{feature.title}
-									</p>
-
-									<Tooltip>
-										<TooltipTrigger asChild>
-											<div className='p-1 rounded-full hover:bg-zinc-800 transition-colors cursor-help'>
-												<Info
-													size={18}
-													className='text-zinc-500 hover:text-zinc-300 transition-colors'
+						{allFeatures.map(
+							(feature: Feature, featureIndex: number) => {
+								const isIncluded = getFeatureIncluded(feature);
+								const isLastFeature =
+									allFeatures.length == featureIndex + 1;
+								return (
+									<motion.div
+										className={`flex items-center justify-between gap-2 py-3 px-2 rounded-lg transition-colors hover:bg-zinc-800/50 ${
+											!isLastFeature &&
+											"border-b-zinc-800 border-b"
+										}`}
+										key={featureIndex}
+										initial={{ opacity: 0 }}
+										animate={{ opacity: 1 }}
+										transition={{
+											duration: 0.4,
+										}}
+									>
+										<div
+											className={`w-5 h-5 rounded-md flex items-center justify-center p-1 ${
+												isIncluded
+													? "bg-app-primary"
+													: "bg-zinc-700 border border-zinc-600"
+											}`}
+										>
+											{isIncluded ? (
+												<Check
+													className='text-zinc-800'
+													strokeWidth='3'
+													size={12}
 												/>
-											</div>
-										</TooltipTrigger>
-										<TooltipContent className='bg-zinc-800 text-white shadow-lg border border-zinc-700 rounded-md py-1.5 px-4'>
-											<p className='max-w-xs text-zinc-200 text-sm'>
-												{feature.subtitle}
-											</p>
-										</TooltipContent>
-									</Tooltip>
-								</motion.div>
-							);
-						})}
+											) : (
+												<X
+													className='text-zinc-400'
+													strokeWidth='3'
+													size={12}
+												/>
+											)}
+										</div>
+										<p
+											className={`mr-auto font-grotesk ${
+												isIncluded
+													? "text-white"
+													: "text-zinc-500"
+											}`}
+										>
+											{feature.title}
+										</p>
+
+										<Tooltip>
+											<TooltipTrigger asChild>
+												<div className='p-1 rounded-full hover:bg-zinc-800 transition-colors cursor-help'>
+													<Info
+														size={18}
+														className='text-zinc-500 hover:text-zinc-300 transition-colors'
+													/>
+												</div>
+											</TooltipTrigger>
+											<TooltipContent className='bg-zinc-800 text-white shadow-lg border border-zinc-700 rounded-md py-1.5 px-4'>
+												<p className='max-w-xs text-zinc-200 text-sm'>
+													{feature.subtitle}
+												</p>
+											</TooltipContent>
+										</Tooltip>
+									</motion.div>
+								);
+							}
+						)}
 					</div>
 				</div>
 			</motion.article>
@@ -377,10 +382,11 @@ const Pricing: React.FC = () => {
 					className='mt-8 text-center'
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
-					transition={{ duration: 0.8, delay: 1.2 }}>
+					transition={{ duration: 0.8, delay: 1.2 }}
+				>
 					<p className='text-white/80 text-sm drop-shadow-sm font-grotesk'>
-						All plans include access to 20+ languages and PDF generation.
-						Cancel anytime.
+						All plans include access to 20+ languages and PDF
+						generation. Cancel anytime.
 					</p>
 				</motion.div>
 			</section>

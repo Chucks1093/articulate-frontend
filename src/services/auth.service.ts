@@ -9,7 +9,6 @@ import {
 import { env } from "@/utils/env.utils";
 import Cookies from "js-cookie";
 import showToast from "@/utils/toast.utils";
-import { Autumn as autumn } from "autumn-js";
 // import { stripe } from "@/utils/stipe.utils";
 
 class AuthService {
@@ -72,22 +71,6 @@ class AuthService {
 
 			if (profileError) throw profileError;
 
-			// // Create Stripe customer
-			const autmnCustomer = await autumn.customers.create({
-				id: user.id,
-				name: username,
-				email: email,
-				fingerprint: new Date().toISOString(),
-			});
-
-			// // Update user with customer ID in auth metadata
-			await this.supabase.auth.updateUser({
-				data: {
-					customer_id: autmnCustomer.data?.stripe_id,
-					username: username,
-				},
-			});
-
 			showToast.message("Account created successfully");
 		} catch (error) {
 			console.error("Error handling OAuth sign-in:", error);
@@ -128,10 +111,18 @@ class AuthService {
 
 		// Set cookies
 		Cookies.set("nora--accessToken", session.access_token, {
+			secure: true,
+			sameSite: "Lax",
+			domain: ".articulate.ink",
+			path: "/",
 			expires: accessTokenExpiry,
 		});
 
 		Cookies.set("nora--refreshToken", session.refresh_token, {
+			secure: true,
+			sameSite: "Lax",
+			domain: ".articulate.ink",
+			path: "/",
 			expires: refreshTokenExpiry,
 		});
 
